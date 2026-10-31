@@ -82,6 +82,10 @@ const STRINGS = {
 
   alert_title: { roman_ur: "Asli Scam Message Share Karein", ur: "اصلی اسکیم میسج شیئر کریں", en: "Share a Real Scam Message" },
   alert_text_label: { roman_ur: "Message paste karein", ur: "میسج پیسٹ کریں", en: "Paste the message" },
+  alert_or_screenshot: { roman_ur: "Ya screenshot se add karein", ur: "یا اسکرین شاٹ سے شامل کریں", en: "Or add from a screenshot" },
+  alert_pick_screenshot: { roman_ur: "📷 Screenshot Chunein", ur: "📷 اسکرین شاٹ چنیں", en: "📷 Choose a Screenshot" },
+  scanning_screenshot: { roman_ur: "Screenshot parha ja raha hai...", ur: "اسکرین شاٹ پڑھا جا رہا ہے...", en: "Reading the screenshot..." },
+  scan_done: { roman_ur: "Text nikal liya — neeche check kar lein", ur: "ٹیکسٹ نکال لیا — نیچے چیک کر لیں", en: "Text extracted — check it below" },
   alert_note_label: { roman_ur: "Note (ikhtiyari)", ur: "نوٹ (اختیاری)", en: "Note (optional)" },
   alert_send: { roman_ur: "Practice Round Bhejein", ur: "پریکٹس راؤنڈ بھیجیں", en: "Send as Practice Round" },
 
