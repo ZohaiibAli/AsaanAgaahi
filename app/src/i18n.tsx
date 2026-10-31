@@ -4,7 +4,7 @@
  * labels, headers, form fields. Default language is Roman Urdu, per the spec.
  */
 import React, { createContext, useContext, useEffect, useState } from "react";
-import * as SecureStore from "expo-secure-store";
+import { storageGet, storageSet } from "./storage";
 
 export type Language = "roman_ur" | "ur" | "en";
 
@@ -111,14 +111,14 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Language>("roman_ur");
 
   useEffect(() => {
-    SecureStore.getItemAsync(STORAGE_KEY).then((saved) => {
+    storageGet(STORAGE_KEY).then((saved) => {
       if (saved === "roman_ur" || saved === "ur" || saved === "en") setLangState(saved);
     });
   }, []);
 
   const setLang = (l: Language) => {
     setLangState(l);
-    SecureStore.setItemAsync(STORAGE_KEY, l).catch(() => {});
+    storageSet(STORAGE_KEY, l).catch(() => {});
   };
 
   const t = (key: Key) => STRINGS[key][lang];

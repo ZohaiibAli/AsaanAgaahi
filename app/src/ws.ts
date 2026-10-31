@@ -46,7 +46,9 @@ export function useFamilySocket(code: string | null, role: "helper" | "learner",
         attemptRef.current += 1;
         timer = setTimeout(connect, delay);
       };
-      ws.onerror = () => ws.close();
+      ws.onerror = () => {
+        ws.close();
+      };
     };
 
     connect();

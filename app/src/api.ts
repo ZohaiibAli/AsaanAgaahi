@@ -2,7 +2,7 @@
  * Thin REST client. Every call attaches the stored JWT (if any) and throws a plain
  * Error with the backend's own message so screens can show it directly.
  */
-import * as SecureStore from "expo-secure-store";
+import { storageDelete, storageGet, storageSet } from "./storage";
 
 export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8000";
 export const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? "ws://localhost:8000";
@@ -10,13 +10,13 @@ export const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? "ws://localhost:8000";
 const TOKEN_KEY = "practice_mode_token";
 
 export async function getToken(): Promise<string | null> {
-  return SecureStore.getItemAsync(TOKEN_KEY);
+  return storageGet(TOKEN_KEY);
 }
 export async function setToken(token: string): Promise<void> {
-  await SecureStore.setItemAsync(TOKEN_KEY, token);
+  await storageSet(TOKEN_KEY, token);
 }
 export async function clearToken(): Promise<void> {
-  await SecureStore.deleteItemAsync(TOKEN_KEY);
+  await storageDelete(TOKEN_KEY);
 }
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {

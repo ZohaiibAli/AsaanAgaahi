@@ -5,7 +5,7 @@
  */
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Appearance } from "react-native";
-import * as SecureStore from "expo-secure-store";
+import { storageGet, storageSet } from "./storage";
 
 export const lightColors = {
   background: "#F6F2FC",
@@ -67,7 +67,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<Mode>("light");
 
   useEffect(() => {
-    SecureStore.getItemAsync(STORAGE_KEY).then((saved) => {
+    storageGet(STORAGE_KEY).then((saved) => {
       if (saved === "light" || saved === "dark") {
         setMode(saved);
       } else {
@@ -79,7 +79,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleMode = () => {
     setMode((prev) => {
       const next = prev === "light" ? "dark" : "light";
-      SecureStore.setItemAsync(STORAGE_KEY, next).catch(() => {});
+      storageSet(STORAGE_KEY, next).catch(() => {});
       return next;
     });
   };

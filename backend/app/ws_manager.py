@@ -25,7 +25,8 @@ class ConnectionManager:
         for ws in list(self._room(code)[role]):
             try:
                 await ws.send_json(event)
-            except Exception:
+            except Exception as exc:
+                print(f"[ws] send_to_role failed, dropping socket: {exc!r}")
                 self.disconnect(code, role, ws)
 
     async def broadcast(self, code: str, event: dict) -> None:
