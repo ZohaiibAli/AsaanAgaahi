@@ -31,7 +31,13 @@
     "plugins": [
       "expo-router",
       "expo-audio",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose a screenshot of a scam message to share with your family."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

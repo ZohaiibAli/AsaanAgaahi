@@ -81,11 +81,19 @@ const STRINGS = {
   record_voice: { roman_ur: "Voice Message Record Karein", ur: "وائس میسج ریکارڈ کریں", en: "Record a Voice Message" },
 
   alert_title: { roman_ur: "Asli Scam Message Share Karein", ur: "اصلی اسکیم میسج شیئر کریں", en: "Share a Real Scam Message" },
+  alert_tab_type: { roman_ur: "✍️ Likh Kar", ur: "✍️ لکھ کر", en: "✍️ Type It" },
+  alert_tab_screenshot: { roman_ur: "📷 Screenshot Se", ur: "📷 اسکرین شاٹ سے", en: "📷 From Screenshot" },
   alert_text_label: { roman_ur: "Message paste karein", ur: "میسج پیسٹ کریں", en: "Paste the message" },
-  alert_or_screenshot: { roman_ur: "Ya screenshot se add karein", ur: "یا اسکرین شاٹ سے شامل کریں", en: "Or add from a screenshot" },
   alert_pick_screenshot: { roman_ur: "📷 Screenshot Chunein", ur: "📷 اسکرین شاٹ چنیں", en: "📷 Choose a Screenshot" },
+  alert_pick_screenshot_hint: {
+    roman_ur: "Scam message ka screenshot chunein — system khud parh kar practice round bana dega, aapko kuch likhna nahi hoga.",
+    ur: "اسکیم میسج کا اسکرین شاٹ چنیں — سسٹم خود پڑھ کر پریکٹس راؤنڈ بنا دے گا، آپ کو کچھ لکھنا نہیں ہوگا۔",
+    en: "Pick a screenshot of the scam message — the system reads it and builds the practice round itself, no typing needed.",
+  },
   scanning_screenshot: { roman_ur: "Screenshot parha ja raha hai...", ur: "اسکرین شاٹ پڑھا جا رہا ہے...", en: "Reading the screenshot..." },
-  scan_done: { roman_ur: "Text nikal liya — neeche check kar lein", ur: "ٹیکسٹ نکال لیا — نیچے چیک کر لیں", en: "Text extracted — check it below" },
+  scan_done: { roman_ur: "System ne parh liya", ur: "سسٹم نے پڑھ لیا", en: "The system read it" },
+  alert_extracted_label: { roman_ur: "Nikala gaya message", ur: "نکالا گیا پیغام", en: "Extracted message" },
+  alert_pick_another: { roman_ur: "Dobara Screenshot Chunein", ur: "دوبارہ اسکرین شاٹ چنیں", en: "Choose a Different Screenshot" },
   alert_note_label: { roman_ur: "Note (ikhtiyari)", ur: "نوٹ (اختیاری)", en: "Note (optional)" },
   alert_send: { roman_ur: "Practice Round Bhejein", ur: "پریکٹس راؤنڈ بھیجیں", en: "Send as Practice Round" },
 
