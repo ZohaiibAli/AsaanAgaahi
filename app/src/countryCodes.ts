@@ -1,0 +1,30 @@
+/** A practical global list for the country-code dropdown. Pakistan is listed first since it's the default. */
+export type Country = { name: string; dial: string; flag: string };
+
+export const COUNTRIES: Country[] = [
+  { name: "Pakistan", dial: "+92", flag: "🇵🇰" },
+  { name: "India", dial: "+91", flag: "🇮🇳" },
+  { name: "Bangladesh", dial: "+880", flag: "🇧🇩" },
+  { name: "United Arab Emirates", dial: "+971", flag: "🇦🇪" },
+  { name: "Saudi Arabia", dial: "+966", flag: "🇸🇦" },
+  { name: "United Kingdom", dial: "+44", flag: "🇬🇧" },
+  { name: "United States", dial: "+1", flag: "🇺🇸" },
+  { name: "Canada", dial: "+1", flag: "🇨🇦" },
+  { name: "Qatar", dial: "+974", flag: "🇶🇦" },
+  { name: "Oman", dial: "+968", flag: "🇴🇲" },
+  { name: "Kuwait", dial: "+965", flag: "🇰🇼" },
+  { name: "Bahrain", dial: "+973", flag: "🇧🇭" },
+  { name: "Australia", dial: "+61", flag: "🇦🇺" },
+  { name: "Germany", dial: "+49", flag: "🇩🇪" },
+  { name: "France", dial: "+33", flag: "🇫🇷" },
+  { name: "China", dial: "+86", flag: "🇨🇳" },
+  { name: "Turkey", dial: "+90", flag: "🇹🇷" },
+  { name: "Malaysia", dial: "+60", flag: "🇲🇾" },
+  { name: "Sri Lanka", dial: "+94", flag: "🇱🇰" },
+  { name: "Afghanistan", dial: "+93", flag: "🇦🇫" },
+  { name: "Nepal", dial: "+977", flag: "🇳🇵" },
+  { name: "South Africa", dial: "+27", flag: "🇿🇦" },
+  { name: "Nigeria", dial: "+234", flag: "🇳🇬" },
+  { name: "Egypt", dial: "+20", flag: "🇪🇬" },
+  { name: "Indonesia", dial: "+62", flag: "🇮🇩" },
+];

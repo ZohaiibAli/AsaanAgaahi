@@ -1,0 +1,33 @@
+# --- secrets ---
+.env
+backend/.env
+app/.env
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+backend/venv/
+
+# --- node / expo ---
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# --- runtime data (in-memory store dump + uploaded voice notes) ---
+backend/data/state.json
+backend/data/voice/
+
+# --- os / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
