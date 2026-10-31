@@ -55,7 +55,6 @@ async def upload_voice(
         "type": "voice_hint",
         "voice_id": voice_id,
         "scenario_id": scenario_id,
-        "message": "Message from your family",
     })
     return {"voice_id": voice_id}
 

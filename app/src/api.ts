@@ -2,6 +2,7 @@
  * Thin REST client. Every call attaches the stored JWT (if any) and throws a plain
  * Error with the backend's own message so screens can show it directly.
  */
+import { Platform } from "react-native";
 import { storageDelete, storageGet, storageSet } from "./storage";
 
 export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8000";
@@ -125,7 +126,14 @@ export const myAssignments = () => get<any[]>("/assign/me");
 // ---------- voice ----------
 export async function uploadVoice(code: string, fileUri: string, scenarioId?: string) {
   const form = new FormData();
-  form.append("file", { uri: fileUri, name: "note.m4a", type: "audio/m4a" } as any);
+  if (Platform.OS === "web") {
+    // recorder.uri is a blob: URL on web — the RN {uri,name,type} shape below only
+    // works through React Native's native networking layer, not the browser's.
+    const blob = await (await fetch(fileUri)).blob();
+    form.append("file", new File([blob], "note.m4a", { type: blob.type || "audio/m4a" }));
+  } else {
+    form.append("file", { uri: fileUri, name: "note.m4a", type: "audio/m4a" } as any);
+  }
   if (scenarioId) form.append("scenario_id", scenarioId);
   return request<{ voice_id: string }>(`/voice/${code}`, { method: "POST", body: form });
 }

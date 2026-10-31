@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { ActivityIndicator, Pressable, Text, View } from "react-native";
-import { listScenarios, Scenario } from "../../src/api";
+import { listScenarios, myAssignments, Scenario } from "../../src/api";
 import { Card } from "../../src/components/Card";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
 import { NeedHelpButton } from "../../src/components/NeedHelpButton";
@@ -22,6 +22,7 @@ export default function LearnerHome() {
   const router = useRouter();
 
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
+  const [pendingAssignmentId, setPendingAssignmentId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -32,9 +33,17 @@ export default function LearnerHome() {
       .then(setScenarios)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
+    // Covers an assignment the Helper sent while this app wasn't open to receive the
+    // live WS push — the pushed one (latestAssignment) still wins if both arrive.
+    myAssignments()
+      .then((rows) => setPendingAssignmentId(rows[0]?.scenario_id ?? null))
+      .catch(() => {});
   }, []);
 
   useFocusEffect(useCallback(() => load(), [load]));
+
+  const pendingAssignment = pendingAssignmentId ? scenarios.find((s) => s.id === pendingAssignmentId) ?? null : null;
+  const assignmentBanner = latestAssignment ?? (pendingAssignment ? { scenario_id: pendingAssignment.id, title: pendingAssignment.title } : null);
 
   return (
     <ScreenContainer>
@@ -52,16 +61,16 @@ export default function LearnerHome() {
         <LanguageToggle />
       </View>
 
-      {(latestAssignment || latestAlert) && (
+      {(assignmentBanner || latestAlert) && (
         <Card style={{ borderColor: colors.primary, borderWidth: 2 }}>
           <Text style={[typography.bodyBold, { color: colors.primary }]}>
             {latestAlert ? t("from_a_real_message") : "✨ " + t("home_practice")}
           </Text>
           <Pressable
-            onPress={() => router.push({ pathname: "/(learner)/play", params: { id: (latestAlert ?? latestAssignment)!.scenario_id } })}
+            onPress={() => router.push({ pathname: "/(learner)/play", params: { id: (latestAlert ?? assignmentBanner)!.scenario_id } })}
           >
             <Text style={[typography.body, { color: colors.text, marginTop: 4 }]}>
-              {pickLang((latestAlert ?? latestAssignment)!.title, lang)} →
+              {pickLang((latestAlert ?? assignmentBanner)!.title, lang)} →
             </Text>
           </Pressable>
         </Card>

@@ -35,7 +35,7 @@ export default function Progress() {
     <ScreenContainer>
       <ScreenHeader title={t("progress_title")} />
 
-      {!loading && rows.length >= 2 && firstHints !== null && lastHints !== null && firstHints !== lastHints && (
+      {!loading && rows.length >= 2 && firstHints !== null && lastHints !== null && lastHints < firstHints && (
         <Card style={{ backgroundColor: colors.surfaceAlt, borderColor: colors.primary, borderWidth: 2 }}>
           <Text style={[typography.bodyBold, { color: colors.primaryDark }]}>
             🌱 {GENTLE_MESSAGE[lang](firstHints, lastHints)}

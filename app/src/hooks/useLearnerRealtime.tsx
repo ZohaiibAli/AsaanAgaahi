@@ -35,7 +35,7 @@ export function LearnerRealtimeProvider({ children }: { children: React.ReactNod
   const [latestAlert, setLatestAlert] = useState<WsEvent | null>(null);
 
   const { connected, send } = useFamilySocket(user?.family_code ?? null, "learner", user?.id ?? null, (event) => {
-    if (event.type === "nudge") setNudge({ message: event.message, voice_id: event.voice_id });
+    if (event.type === "nudge" || event.type === "voice_hint") setNudge({ message: event.message, voice_id: event.voice_id });
     else if (event.type === "assignment") setLatestAssignment(event);
     else if (event.type === "alert_scenario") setLatestAlert(event);
   });
