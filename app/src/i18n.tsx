@@ -9,8 +9,8 @@ import { storageGet, storageSet } from "./storage";
 export type Language = "roman_ur" | "ur" | "en";
 
 const STRINGS = {
-  app_name: { roman_ur: "Practice Mode", ur: "پریکٹس موڈ", en: "Practice Mode" },
-  welcome_title: { roman_ur: "Practice Mode mein khush aamdeed", ur: "پریکٹس موڈ میں خوش آمدید", en: "Welcome to Practice Mode" },
+  app_name: { roman_ur: "AsaanAgaahi", ur: "آسان آگاہی", en: "AsaanAgaahi" },
+  welcome_title: { roman_ur: "AsaanAgaahi mein khush aamdeed", ur: "آسان آگاہی میں خوش آمدید", en: "Welcome to AsaanAgaahi" },
   welcome_subtitle: { roman_ur: "Scam pehchanna seekhein, mehfooz tareeqe se", ur: "اسکیم پہچاننا سیکھیں، محفوظ طریقے سے", en: "Learn to spot scams, safely" },
   im_learning: { roman_ur: "Main seekh raha/rahi hoon", ur: "میں سیکھ رہا/رہی ہوں", en: "I'm learning" },
   im_helping: { roman_ur: "Main madad kar raha/rahi hoon", ur: "میں مدد کر رہا/رہی ہوں", en: "I'm helping" },
