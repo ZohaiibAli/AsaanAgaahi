@@ -21,7 +21,7 @@ export function PhoneInput({ countryCode, onCountryChange, phone, onPhoneChange 
         onPress={() => setOpen(true)}
         style={[styles.countryButton, { borderColor: colors.border, backgroundColor: colors.surface }]}
       >
-        <Text style={typography.body}>
+        <Text style={[typography.body, { color: colors.text }]}>
           {selected.flag} {selected.dial}
         </Text>
       </Pressable>
@@ -53,7 +53,7 @@ export function PhoneInput({ countryCode, onCountryChange, phone, onPhoneChange 
                   }}
                   style={[styles.countryRow, { borderBottomColor: colors.border }]}
                 >
-                  <Text style={typography.body}>
+                  <Text style={[typography.body, { color: colors.text }]}>
                     {item.flag}  {item.name} ({item.dial})
                   </Text>
                 </Pressable>

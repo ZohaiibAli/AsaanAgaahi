@@ -1,0 +1,43 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e14]:
+    - generic [ref=f2e15]: Register Karein
+    - generic [ref=f2e17]: Main seekh raha/rahi hoon
+    - generic [ref=f2e18]:
+      - generic [ref=f2e19]: Naam
+      - textbox "Naam" [ref=f2e20]
+    - generic [ref=f2e21]: Mobile Number
+    - generic [ref=f2e23]:
+      - generic [ref=f2e24] [cursor=pointer]: 🇵🇰 +92
+      - textbox "300 1234567" [ref=f2e26]
+    - generic [ref=f2e27]:
+      - generic [ref=f2e28]: Password
+      - textbox "••••••••" [ref=f2e29]
+    - button "Register Karein" [ref=f2e31] [cursor=pointer]
+    - button "Pehle se account hai? Login karein" [ref=f2e36] [cursor=pointer]
+  - dialog [ref=f2e41]:
+    - generic [ref=f2e46] [cursor=pointer]:
+      - generic [ref=f2e47]: 🇵🇰 Pakistan (+92)
+      - generic [ref=f2e50]: 🇮🇳 India (+91)
+      - generic [ref=f2e53]: 🇧🇩 Bangladesh (+880)
+      - generic [ref=f2e56]: 🇦🇪 United Arab Emirates (+971)
+      - generic [ref=f2e59]: 🇸🇦 Saudi Arabia (+966)
+      - generic [ref=f2e62]: 🇬🇧 United Kingdom (+44)
+      - generic [ref=f2e65]: 🇺🇸 United States (+1)
+      - generic [ref=f2e68]: 🇨🇦 Canada (+1)
+      - generic [ref=f2e71]: 🇶🇦 Qatar (+974)
+      - generic [ref=f2e74]: 🇴🇲 Oman (+968)
+      - generic [ref=f2e77]: 🇰🇼 Kuwait (+965)
+      - generic [ref=f2e80]: 🇧🇭 Bahrain (+973)
+      - generic [ref=f2e83]: 🇦🇺 Australia (+61)
+      - generic [ref=f2e86]: 🇩🇪 Germany (+49)
+      - generic [ref=f2e89]: 🇫🇷 France (+33)
+      - generic [ref=f2e92]: 🇨🇳 China (+86)
+      - generic [ref=f2e95]: 🇹🇷 Turkey (+90)
+      - generic [ref=f2e98]: 🇲🇾 Malaysia (+60)
+      - generic [ref=f2e101]: 🇱🇰 Sri Lanka (+94)
+      - generic [ref=f2e104]: 🇦🇫 Afghanistan (+93)
+      - generic [ref=f2e107]: 🇳🇵 Nepal (+977)
+      - generic [ref=f2e110]: 🇿🇦 South Africa (+27)
+      - generic [ref=f2e113]: 🇳🇬 Nigeria (+234)
+      - generic [ref=f2e116]: 🇪🇬 Egypt (+20)
+      - generic [ref=f2e119]: 🇮🇩 Indonesia (+62)
