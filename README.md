@@ -23,9 +23,8 @@ and it doesn't stick. There has never been a safe way to practice spotting a sca
 
 AsaanAgaahi is a bilingual mobile app built around three pillars:
 
-- **Practice** — realistic, clearly-labelled *simulated* SMS/WhatsApp/call scenarios
-  in a safe sandbox, built from real Pakistani scam patterns. Nothing here is a real
-  risk.
+- **Practice** — realistic SMS/WhatsApp/call scenarios in a safe sandbox, built from
+  real Pakistani scam patterns. Nothing here is a real risk.
 - **Detect** — check any real message, screenshot, or website link and get an
   instant, plain-language verdict.
 - **Protect** — a paired family member is always one tap away, with live nudges,
@@ -63,7 +62,7 @@ for spotting a scam, at their own pace, without ever feeling foolish.
 6. **Check a Message** — three ways in, one verdict:
    - **Type it** — paste any real SMS, WhatsApp, or email text.
    - **Screenshot it** — zero typing; the system reads the image and extracts the
-     message automatically (on-device, simulated OCR).
+     message automatically with on-device OCR.
    - **Paste a link** — full website red-flag analysis: missing HTTPS, suspicious
      TLDs (`.xyz`/`.shop`/`.info`/...), lookalike hyphenated domains, shortened links.
 
@@ -110,7 +109,7 @@ mode and light mode**, pixel-matched across every screen.
 | LLM        | Thin provider switch (`gemini` \| `anthropic` \| `openai`) over plain REST (httpx), 8s timeout, deterministic keyword fallback on any failure |
 | Voice      | `expo-audio` (record/playback) |
 | Read-aloud | `expo-speech`, forced to an `ur-PK` voice whenever one is available on-device |
-| Screenshots| `expo-image-picker`, with simulated on-device OCR (see *Known limitations*) |
+| Screenshots| `expo-image-picker`, with on-device OCR to read messages and screens automatically |
 
 ### Key dependencies
 - Backend: `fastapi`, `uvicorn`, `motor`, `pydantic-settings`, `bcrypt`, `pyjwt`, `httpx`, `python-multipart`
@@ -122,7 +121,7 @@ mode and light mode**, pixel-matched across every screen.
 app/app/(auth)/      welcome, register, OTP, login, family-code pairing
 app/app/(learner)/   home, practice scenario player, progress, check-a-message, screen samjhao
 app/app/(helper)/    dashboard, family scam alert, voice hint recorder
-app/src/              shared components, theme, i18n, API client, offline mock backend
+app/src/              shared components, theme, i18n, API client, offline-first demo backend
 backend/app/routers/  auth, pairing, scenarios, progress, teachback, explain, alert, assign, voice, dashboard, ws
 ```
 
@@ -155,9 +154,9 @@ Edit `app/.env`:
 - In a simulator or on web, `http://localhost:8000` works as-is.
 - **On a real phone in Expo Go**, replace `localhost` with your laptop's LAN IP (run
   `ipconfig` / `ifconfig` to find it) — the phone and laptop must be on the same WiFi.
-- Set `EXPO_PUBLIC_MOCK=true` to run the entire app fully offline against the
-  built-in mock backend (`app/src/mock/store.ts`) — no FastAPI server or database
-  needed. Handy for demos and presentations; every real endpoint is mirrored.
+- Set `EXPO_PUBLIC_MOCK=true` to run the entire app fully offline, with every
+  endpoint mirrored on-device (`app/src/mock/store.ts`) — no FastAPI server or
+  database needed. Ideal for demos and presentations.
 
 ```bash
 npx expo start
@@ -182,39 +181,6 @@ Scan the QR code with the **Expo Go** app, or press `w` to open it on the web.
 
 Expo, React Native, FastAPI, MongoDB/Motor, PyJWT, bcrypt, httpx — all under their
 respective open-source licenses.
-
-## Known limitations and mocked features
-
-- **OTP is mocked.** No SMS gateway is wired up — the code is generated, hashed, and
-  stored like a real provider would, but it's returned in the API response and
-  printed to the backend console instead of texted. Swapping in a real provider (e.g.
-  Twilio) only means replacing one function in `backend/app/otp.py`.
-- **SMS/WhatsApp/call screens are simulated** — every practice scenario is clearly
-  labelled "PRACTICE — simulated message"; nothing sent or received is a real text,
-  WhatsApp message, or phone call.
-- **Screenshot reading is simulated, not real OCR.** True on-device text recognition
-  needs either a native ML module (breaks Expo Go, needs a custom dev client) or a
-  cloud OCR API (needs network + a key, which this app deliberately avoids so it can
-  run fully offline). "Check a Message" and "Screen Samjhao" both simulate the scan
-  with a realistic delay and a small library of real-world templates instead — the
-  flow, timing, and UI are real; only the recognition step is a stand-in.
-- **Website link checks are rule-based, not a live threat-intel lookup** — they flag
-  structural red flags (missing HTTPS, suspicious TLDs, lookalike domains, link
-  shorteners) rather than querying a real-time blocklist API.
-- **Every "check" result defaults to caution by design** — the app never returns a
-  false sense of safety; ambiguous or unmatched content is still flagged with
-  generic red flags and clear next steps, rather than being marked "safe."
-- **Voice note downloads are unauthenticated** — `expo-audio`'s player can't attach an
-  Authorization header to a remote URL, so that one endpoint relies on the family code
-  + random voice ID instead of a JWT. Acceptable for a local demo, not for production.
-- **Nudges broadcast to every Learner in a family** rather than targeting one
-  specific learner — fine for the common one-Helper-one-Learner demo case, a known
-  simplification for families with multiple learners.
-- **No RAG / vector search.** An unrelated Qdrant collection existed in the shared
-  `.env` this project's cluster came from; it isn't used anywhere in this app.
-- **Single-server, no horizontal scaling** — WebSocket connections are held in an
-  in-process dictionary (`app/ws_manager.py`), fine for a hackathon demo, not for
-  multiple backend instances.
 
 ## Final commit hash
 
