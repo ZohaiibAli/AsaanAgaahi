@@ -86,6 +86,12 @@ export default function LearnerHome() {
           <Text style={typography.heading}>{t("home_paste")}</Text>
         </Card>
       </Pressable>
+      <Pressable onPress={() => router.push("/(learner)/translate")}>
+        <Card style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <Icon.translate size={20} color={colors.text} />
+          <Text style={typography.heading}>{t("home_translate")}</Text>
+        </Card>
+      </Pressable>
       <Pressable onPress={() => router.push("/(learner)/progress")}>
         <Card style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           <Icon.trending size={20} color={colors.text} />

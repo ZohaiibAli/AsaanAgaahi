@@ -55,6 +55,12 @@ export const Icon = {
   mail: themed(Ionicons, "paper-plane" satisfies IoniconName),
   camera: themed(Ionicons, "camera" satisfies IoniconName),
   pencil: themed(Ionicons, "pencil" satisfies IoniconName),
+  translate: themed(Ionicons, "language" satisfies IoniconName),
+  bank: themed(MaterialCommunityIcons, "bank" satisfies MCIName),
+  wallet: themed(Ionicons, "wallet" satisfies IoniconName),
+  idCard: themed(MaterialCommunityIcons, "card-account-details-outline" satisfies MCIName),
+  lockClosed: themed(Ionicons, "lock-closed" satisfies IoniconName),
+  listNumbers: themed(MaterialCommunityIcons, "format-list-numbered" satisfies MCIName),
   // Confidence scale, 1 → 5 (facial-expression line icons instead of emoji faces)
   face1: themed(MaterialCommunityIcons, "emoticon-sad-outline" satisfies MCIName),
   face2: themed(MaterialCommunityIcons, "emoticon-confused-outline" satisfies MCIName),

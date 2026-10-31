@@ -110,6 +110,29 @@ const STRINGS = {
   message_from_family: { roman_ur: "Aapke Family Ki Taraf Se Paigham", ur: "آپ کی فیملی کی طرف سے پیغام", en: "Message from your family" },
 
   from_a_real_message: { roman_ur: "Family se bheja gaya scam message", ur: "فیملی سے بھیجا گیا اسکیم میسج", en: "Scam message shared by your family" },
+
+  home_translate: { roman_ur: "Banking/Portal Screen Samjhayein", ur: "بینکنگ/پورٹل اسکرین سمجھیں", en: "Explain a Banking/Portal Screen" },
+  translate_title: { roman_ur: "Screen Samjhao", ur: "اسکرین سمجھاؤ", en: "Screen Translator" },
+  translate_intro: {
+    roman_ur: "Apne banking app, mobile wallet ya sarkari portal ka screenshot chunein. System mushkil alfaz ko aasaan zabaan mein samjhayega aur bata dega kaam mehfooz tareeqe se kaise karna hai.",
+    ur: "اپنے بینکنگ ایپ، موبائل والیٹ یا سرکاری پورٹل کا اسکرین شاٹ چنیں۔ سسٹم مشکل الفاظ کو آسان زبان میں سمجھائے گا اور بتائے گا کام محفوظ طریقے سے کیسے کرنا ہے۔",
+    en: "Pick a screenshot of your banking app, mobile wallet, or a government portal. The system explains the hard words in plain language and walks you through doing it safely.",
+  },
+  translate_pick_screenshot_hint: {
+    roman_ur: "Jis app ya website ki screen samajhni hai uska screenshot chunein — system khud parh kar aasaan zabaan mein samjha dega.",
+    ur: "جس ایپ یا ویب سائٹ کی اسکرین سمجھنی ہے اس کا اسکرین شاٹ چنیں — سسٹم خود پڑھ کر آسان زبان میں سمجھا دے گا۔",
+    en: "Pick a screenshot of the app or website screen you want explained — the system reads it and explains it in plain language.",
+  },
+  translate_privacy_note: {
+    roman_ur: "Yeh screenshot sirf aapke apne phone par dekha jata hai — kahin bhi upload ya bheja nahi jata.",
+    ur: "یہ اسکرین شاٹ صرف آپ کے اپنے فون پر دیکھا جاتا ہے — کہیں بھی اپلوڈ یا بھیجا نہیں جاتا۔",
+    en: "This screenshot is only viewed on your own phone — it is never uploaded or sent anywhere.",
+  },
+  translate_category_label: { roman_ur: "Yeh Screen Kis Qisam Ki Hai", ur: "یہ اسکرین کس قسم کی ہے", en: "Type of screen" },
+  translate_summary_label: { roman_ur: "Yeh Screen Kya Hai", ur: "یہ اسکرین کیا ہے", en: "What this screen is" },
+  translate_jargon_heading: { roman_ur: "Mushkil Alfaz Ki Aasaan Wazahat", ur: "مشکل الفاظ کی آسان وضاحت", en: "Hard words, explained simply" },
+  translate_steps_heading: { roman_ur: "Yeh Kaam Mehfooz Tareeqe Se Kaise Karein", ur: "یہ کام محفوظ طریقے سے کیسے کریں", en: "How to do this safely" },
+  translate_security_heading: { roman_ur: "Hifazati Baatein", ur: "حفاظتی باتیں", en: "Security tips" },
 } as const;
 
 type Key = keyof typeof STRINGS;
