@@ -21,6 +21,9 @@ export function LanguageToggle() {
           <Pressable
             key={opt.key}
             onPress={() => setLang(opt.key)}
+            accessibilityRole="radio"
+            accessibilityLabel={opt.label}
+            accessibilityState={{ selected: active }}
             style={[styles.option, active && { backgroundColor: colors.primary }]}
           >
             <Text style={[styles.label, { color: active ? colors.onPrimary : colors.text }]}>{opt.label}</Text>

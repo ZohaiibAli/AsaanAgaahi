@@ -25,10 +25,11 @@ export default function VoiceHint() {
   const [scenarioId, setScenarioId] = useState<string | undefined>(undefined);
   const [uploading, setUploading] = useState(false);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    pairCreate().then((r) => setCode(r.code));
-    listScenarios().then(setScenarios);
+    pairCreate().then((r) => setCode(r.code)).catch((e) => setError(e.message));
+    listScenarios().then(setScenarios).catch(() => {});
     AudioModule.requestRecordingPermissionsAsync();
     setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
   }, []);
@@ -48,10 +49,13 @@ export default function VoiceHint() {
   const onUpload = async () => {
     if (!code || !recordedUri) return;
     setUploading(true);
+    setError("");
     try {
       await uploadVoice(code, recordedUri, scenarioId);
       setDone(true);
       setRecordedUri(null);
+    } catch (e: any) {
+      setError(e.message);
     } finally {
       setUploading(false);
     }
@@ -115,6 +119,7 @@ export default function VoiceHint() {
           <Text style={{ color: colors.success, fontWeight: "700" }}>✅ {t("upload")}</Text>
         </Card>
       )}
+      {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}
 
       <Button label={t("back")} variant="outline" onPress={() => router.back()} />
     </ScreenContainer>

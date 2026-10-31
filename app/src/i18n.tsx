@@ -72,6 +72,8 @@ const STRINGS = {
 
   progress_title: { roman_ur: "Meri Pragati", ur: "میری ترقی", en: "My Progress" },
   independence_score: { roman_ur: "Khud-Mukhtaari Score", ur: "خود مختاری اسکور", en: "Independence Score" },
+  progress_empty: { roman_ur: "Abhi tak koi practice nahi hui. Chalein shuru karein!", ur: "ابھی تک کوئی پریکٹس نہیں ہوئی۔ چلیں شروع کریں!", en: "No practice rounds yet. Let's get started!" },
+  network_error: { roman_ur: "Connection nahi ho saka. Dobara koshish karein.", ur: "کنکشن نہیں ہو سکا۔ دوبارہ کوشش کریں۔", en: "Couldn't connect. Please try again." },
 
   dashboard_title: { roman_ur: "Family Dashboard", ur: "فیملی ڈیش بورڈ", en: "Family Dashboard" },
   assign_scenario: { roman_ur: "Agla Practice Bhejein", ur: "اگلا پریکٹس بھیجیں", en: "Assign Next Scenario" },

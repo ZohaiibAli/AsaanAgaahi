@@ -27,11 +27,15 @@ export default function Paste() {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Awaited<ReturnType<typeof explain>> | null>(null);
+  const [error, setError] = useState("");
 
   const onCheck = async () => {
     setLoading(true);
+    setError("");
     try {
       setResult(await explain({ message_text: text }));
+    } catch (e: any) {
+      setError(e.message);
     } finally {
       setLoading(false);
     }
@@ -49,6 +53,7 @@ export default function Paste() {
         style={{ minHeight: 120, textAlignVertical: "top" }}
       />
       <Button label={t("check_message")} onPress={onCheck} loading={loading} disabled={text.trim().length < 5} />
+      {error ? <Text style={{ color: colors.warning, marginTop: spacing.sm }}>{error}</Text> : null}
 
       {result && (
         <View style={{ marginTop: spacing.md }}>

@@ -32,10 +32,22 @@ export default function Play() {
   const [teachbackResult, setTeachbackResult] = useState<{ understood: boolean; feedback: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [independenceScore, setIndependenceScore] = useState<number | null>(null);
+  const [loadError, setLoadError] = useState("");
 
   useEffect(() => {
-    getScenario(id).then(setScenario);
+    getScenario(id)
+      .then(setScenario)
+      .catch((e) => setLoadError(e.message));
   }, [id]);
+
+  if (loadError) {
+    return (
+      <ScreenContainer>
+        <Text style={{ color: colors.warning, marginBottom: spacing.md }}>{loadError}</Text>
+        <Button label={t("back")} variant="outline" onPress={() => router.back()} />
+      </ScreenContainer>
+    );
+  }
 
   if (!scenario) {
     return (

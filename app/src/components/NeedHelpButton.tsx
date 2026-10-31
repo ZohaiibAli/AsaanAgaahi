@@ -19,7 +19,12 @@ export function NeedHelpButton(ctx: Props) {
   };
 
   return (
-    <Pressable onPress={onPress} style={[styles.button, { backgroundColor: colors.surfaceAlt, borderColor: colors.primary }]}>
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={t("need_help_button")}
+      style={[styles.button, { backgroundColor: colors.surfaceAlt, borderColor: colors.primary }]}
+    >
       <Text style={{ fontSize: 20 }}>🙋</Text>
       <Text style={[typography.bodyBold, { color: colors.primary, marginLeft: 8 }]}>
         {sent ? t("help_sent") : t("need_help_button")}

@@ -19,12 +19,16 @@ export default function Alert() {
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   const onSend = async () => {
     setLoading(true);
+    setError("");
     try {
       await createAlert({ text, note: note || undefined });
       setSent(true);
+    } catch (e: any) {
+      setError(e.message);
     } finally {
       setLoading(false);
     }
@@ -56,6 +60,7 @@ export default function Alert() {
         style={{ minHeight: 120, textAlignVertical: "top" }}
       />
       <TextField label={t("alert_note_label")} value={note} onChangeText={setNote} />
+      {error ? <Text style={{ color: colors.warning, marginBottom: 8 }}>{error}</Text> : null}
       <Button label={t("alert_send")} onPress={onSend} loading={loading} disabled={text.trim().length < 5} />
     </ScreenContainer>
   );

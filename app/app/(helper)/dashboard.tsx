@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, Text, View } from "react-native";
 import { assignScenario, dashboard as fetchDashboard, listScenarios, pairCreate, Scenario } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
@@ -28,18 +28,25 @@ export default function Dashboard() {
   const [data, setData] = useState<any>(null);
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const [showAssign, setShowAssign] = useState(false);
+  const [error, setError] = useState("");
 
   const load = useCallback(async () => {
-    const { code } = await pairCreate();
-    setCode(code);
-    const d = await fetchDashboard(code);
-    setData(d);
+    try {
+      const { code } = await pairCreate();
+      setCode(code);
+      const d = await fetchDashboard(code);
+      setData(d);
+    } catch (e: any) {
+      setError(e.message);
+    }
   }, []);
 
   useFocusEffect(
     useCallback(() => {
       load();
-      listScenarios().then(setScenarios);
+      listScenarios()
+        .then(setScenarios)
+        .catch(() => {});
     }, [load])
   );
 
@@ -60,7 +67,7 @@ export default function Dashboard() {
   if (!data) {
     return (
       <ScreenContainer>
-        <Text style={typography.body}>…</Text>
+        {error ? <Text style={{ color: colors.warning }}>{error}</Text> : <ActivityIndicator color={colors.primary} />}
       </ScreenContainer>
     );
   }

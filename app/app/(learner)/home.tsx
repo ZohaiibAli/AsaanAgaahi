@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import { listScenarios, Scenario } from "../../src/api";
 import { Card } from "../../src/components/Card";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
@@ -23,11 +23,14 @@ export default function LearnerHome() {
 
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const load = useCallback(() => {
     setLoading(true);
+    setError("");
     listScenarios()
       .then(setScenarios)
+      .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
 
@@ -78,6 +81,9 @@ export default function LearnerHome() {
       <Text style={[typography.heading, { color: colors.text, marginTop: spacing.lg, marginBottom: spacing.sm }]}>
         {t("home_practice")}
       </Text>
+
+      {loading && <ActivityIndicator color={colors.primary} style={{ marginVertical: spacing.md }} />}
+      {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}
 
       {scenarios.map((s) => (
         <Pressable key={s.id} onPress={() => router.push({ pathname: "/(learner)/play", params: { id: s.id } })}>

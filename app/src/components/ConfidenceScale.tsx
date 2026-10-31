@@ -15,6 +15,9 @@ export function ConfidenceScale({ value, onChange }: { value: number | null; onC
           <Pressable
             key={level}
             onPress={() => onChange(level)}
+            accessibilityRole="radio"
+            accessibilityLabel={`${level} / 5`}
+            accessibilityState={{ selected: active }}
             style={[
               styles.face,
               { borderColor: active ? colors.primary : colors.border, backgroundColor: active ? colors.surfaceAlt : "transparent" },

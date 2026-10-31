@@ -7,6 +7,8 @@ export function ThemeToggle() {
   return (
     <Pressable
       onPress={toggleMode}
+      accessibilityRole="button"
+      accessibilityLabel={mode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       style={{
         width: 48,
         height: 48,

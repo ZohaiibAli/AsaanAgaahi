@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import { myProgress } from "../../src/api";
 import { Card } from "../../src/components/Card";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
@@ -18,10 +18,12 @@ export default function Progress() {
   const { t, lang } = useI18n();
   const [rows, setRows] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     myProgress()
       .then(setRows)
+      .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
 
@@ -41,9 +43,12 @@ export default function Progress() {
         </Card>
       )}
 
-      {!loading && rows.length === 0 && (
+      {loading && <ActivityIndicator color={colors.primary} style={{ marginVertical: spacing.md }} />}
+      {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}
+
+      {!loading && rows.length === 0 && !error && (
         <Card>
-          <Text style={[typography.body, { color: colors.textMuted }]}>—</Text>
+          <Text style={[typography.body, { color: colors.textMuted, textAlign: "center" }]}>🌱 {t("progress_empty")}</Text>
         </Card>
       )}
 

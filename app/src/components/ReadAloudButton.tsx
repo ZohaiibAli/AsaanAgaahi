@@ -12,6 +12,8 @@ export function ReadAloudButton({ text }: { text: string }) {
   return (
     <Pressable
       onPress={() => (speaking ? stop() : speak(text, lang))}
+      accessibilityRole="button"
+      accessibilityLabel={t("listen")}
       style={[styles.pill, { backgroundColor: colors.surfaceAlt, borderColor: colors.primary }]}
     >
       <Text style={{ fontSize: 20 }}>{speaking ? "⏹️" : "🔊"}</Text>
