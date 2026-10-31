@@ -1,9 +1,12 @@
-# Practice Mode
+# AsaanAgaahi
+
+**Asaan Zabaan. Mehfooz Khandaan.** *(Simple language. A protected family.)*
 
 A safe, no-shame place to practise spotting scams — built for people who did not grow
-up with technology, like parents and grandparents in Pakistan.
+up with technology, like parents and grandparents in Pakistan — paired with a family
+member who can coach them in real time.
 
-**Team:** Zohaib Ali *( add teammate names here )*
+**Team:** Team ZOWD
 
 ---
 
@@ -13,24 +16,38 @@ Scam SMS, WhatsApp messages, and phone calls targeting OTPs, bank PINs, and fake
 government payments (BISP, FBR, courier "customs fees") are a daily threat in
 Pakistan — and the people most exposed are often the least comfortable with a
 smartphone. Most "scam awareness" content is a one-time warning. It doesn't teach,
-and it doesn't stick.
+and it doesn't stick. There has never been a safe way to practice spotting a scam
+*before* the real one arrives.
 
 ## The solution
 
-Practice Mode is a mobile app with two linked roles:
+AsaanAgaahi is a bilingual mobile app built around three pillars:
 
-- **Learner** ("I'm learning") — practises on realistic, clearly-labelled *simulated*
-  SMS/WhatsApp/call scenarios in a safe sandbox. Nothing here is a real risk.
-- **Helper** ("I'm helping") — a family member who pairs with the Learner via a
-  6-character code, watches their progress, and can nudge them in real time.
+- **Practice** — realistic, clearly-labelled *simulated* SMS/WhatsApp/call scenarios
+  in a safe sandbox, built from real Pakistani scam patterns. Nothing here is a real
+  risk.
+- **Detect** — check any real message, screenshot, or website link and get an
+  instant, plain-language verdict.
+- **Protect** — a paired family member is always one tap away, with live nudges,
+  voice hints, and alerts.
+
+The app has two linked roles:
+
+- **Learner** ("Main seekh raha/rahi hoon") — practises scenarios, checks real
+  messages, and gets a live confidence/independence score over time.
+- **Helper** ("Main madad kar raha/rahi hoon") — a family member who pairs with the
+  Learner via a 6-character code, watches their progress, and can nudge them in real
+  time.
 
 The goal is never to do the task for the learner — it's to build their own instinct
 for spotting a scam, at their own pace, without ever feeling foolish.
 
-### Core features
+---
 
-1. **Scenario practice** — 8 Pakistan-specific scenarios (Easypaisa/JazzCash prize
-   scam, fake account-blocked warning, fake BISP payment, fake FBR tax notice, an
+## Core features
+
+1. **Practice Arena** — 8 Pakistan-specific scenarios (Easypaisa/JazzCash prize scam,
+   fake account-blocked warning, fake BISP payment, fake FBR tax notice, an
    OTP-asking phone call, a fake courier/delivery fee, and 2 legitimate messages so
    learners learn not to distrust everything). Tap the parts of the message that look
    suspicious, then decide: scam or safe.
@@ -40,46 +57,74 @@ for spotting a scam, at their own pace, without ever feeling foolish.
    with no red error screens anywhere in the app.
 4. **Teach-back** — "In your own words, why?" is checked by the LLM (with a keyword
    fallback) and answered with short, encouraging feedback.
-5. **Independence score** — rewards needing *fewer hints*, not just correct answers
-   (100 / 70 / 40 / 10 for 0–3 hints used), tracked alongside a before/after
-   confidence scale.
-6. **Paste a real message** — learners can paste a suspicious message they actually
-   received and get a plain-language verdict, red flags, and "what to do next" (never
-   "click here").
-7. **Family Voice Hint** — the Helper records a short voice note that shows up as
+5. **Independence score** — rewards needing *fewer hints*, not just correct answers,
+   tracked alongside a before/after confidence scale, visualised on a dedicated
+   **Meri Pragati** (progress) screen.
+6. **Check a Message** — three ways in, one verdict:
+   - **Type it** — paste any real SMS, WhatsApp, or email text.
+   - **Screenshot it** — zero typing; the system reads the image and extracts the
+     message automatically (on-device, simulated OCR).
+   - **Paste a link** — full website red-flag analysis: missing HTTPS, suspicious
+     TLDs (`.xyz`/`.shop`/`.info`/...), lookalike hyphenated domains, shortened links.
+
+   Every check returns a clear, multi-point, plain-language breakdown and exactly
+   what to do next — and always errs on the side of caution rather than a false
+   sense of safety.
+7. **Screen Samjhao** — screenshot any banking app, mobile wallet, or government
+   portal screen and get every confusing term explained in one plain-language line,
+   a step-by-step "how to do this safely" walkthrough, and a dedicated security
+   checklist. Runs entirely on-device — the screenshot is never uploaded anywhere.
+8. **Family Voice Hint** — the Helper records a short voice note that shows up as
    "Message from your family" on the Learner's screen.
-8. **"Samajh nahi aaya" button** — instead of a phone call, a live WebSocket event
+9. **"Samajh nahi aaya" button** — instead of a phone call, a live WebSocket event
    notifies the Helper with full context (scenario, step, hints used); the Helper can
    nudge back with a preset message or voice note.
-9. **Family Scam Alert** — the Helper pastes a real scam message they received, and
-   the backend turns it into a brand-new practice round for the Learner, generated by
-   the LLM (with a template fallback).
-10. **Helper Dashboard** — live activity feed, per-learner independence/confidence
-    trends, scenarios completed, outstanding help requests, and one-tap actions to
-    assign a scenario, send an alert, or record a voice hint.
+10. **Family Scam Alert** — the Helper shares a real scam message they received
+    (typed or screenshotted), and the backend turns it into a brand-new practice
+    round for the Learner, generated by the LLM (with a template fallback).
+11. **Helper Dashboard** — one-tap family pairing code, live activity feed,
+    per-learner independence/confidence trends, scenarios completed, outstanding
+    help requests, and one-tap actions to assign a scenario, send an alert, or
+    record a voice hint.
+12. **How to Use guide** — a single tap on the Learner home opens a full walkthrough
+    of every feature in plain language, for anyone opening the app for the first
+    time.
 
-Every screen has a read-aloud button and supports three languages: **Roman Urdu**
-(default), **Urdu script**, and **English**. The whole UI uses large text, big touch
-targets, and a calm light/dark purple theme.
+Every screen has a read-aloud button powered by real Urdu text-to-speech (not an
+English voice stumbling over Urdu words), and supports three languages: **Roman
+Urdu** (default), **Urdu script**, and **English**. The whole UI uses large text, big
+touch targets, smooth calm animations, and a cohesive purple identity in both **dark
+mode and light mode**, pixel-matched across every screen.
 
 ---
 
 ## Tech stack
 
-| Layer     | Technology |
-|-----------|------------|
-| Frontend  | React Native + Expo (TypeScript, Expo Router) — runs in **Expo Go**, no custom native modules, no EAS build |
-| Backend   | FastAPI (Python 3.11+) |
-| Realtime  | FastAPI WebSockets (`/ws/{code}`) |
-| Database  | MongoDB (Atlas), via Motor (async) |
-| Auth      | Phone + password, OTP-confirmed registration, JWT sessions (PyJWT + bcrypt) |
-| LLM       | Thin provider switch (`gemini` \| `anthropic` \| `openai`) over plain REST (httpx), 8s timeout, deterministic keyword fallback on any failure |
-| Voice     | `expo-audio` (record/playback) |
-| Read-aloud| `expo-speech` |
+| Layer      | Technology |
+|------------|------------|
+| Frontend   | React Native + Expo (TypeScript, Expo Router) — runs in **Expo Go**, no custom native modules, no EAS build |
+| Backend    | FastAPI (Python 3.11+) |
+| Realtime   | FastAPI WebSockets (`/ws/{code}`) |
+| Database   | MongoDB (Atlas), via Motor (async) |
+| Auth       | Phone + password, OTP-confirmed registration, JWT sessions (PyJWT + bcrypt) |
+| LLM        | Thin provider switch (`gemini` \| `anthropic` \| `openai`) over plain REST (httpx), 8s timeout, deterministic keyword fallback on any failure |
+| Voice      | `expo-audio` (record/playback) |
+| Read-aloud | `expo-speech`, forced to an `ur-PK` voice whenever one is available on-device |
+| Screenshots| `expo-image-picker`, with simulated on-device OCR (see *Known limitations*) |
 
 ### Key dependencies
 - Backend: `fastapi`, `uvicorn`, `motor`, `pydantic-settings`, `bcrypt`, `pyjwt`, `httpx`, `python-multipart`
-- Frontend: `expo`, `expo-router`, `expo-audio`, `expo-speech`, `expo-secure-store`, `react-native-safe-area-context`, `react-native-screens`
+- Frontend: `expo`, `expo-router`, `expo-audio`, `expo-speech`, `expo-image-picker`, `expo-secure-store`, `expo-linear-gradient`, `react-native-safe-area-context`, `react-native-screens`
+
+### Project layout
+
+```
+app/app/(auth)/      welcome, register, OTP, login, family-code pairing
+app/app/(learner)/   home, practice scenario player, progress, check-a-message, screen samjhao
+app/app/(helper)/    dashboard, family scam alert, voice hint recorder
+app/src/              shared components, theme, i18n, API client, offline mock backend
+backend/app/routers/  auth, pairing, scenarios, progress, teachback, explain, alert, assign, voice, dashboard, ws
+```
 
 ---
 
@@ -110,12 +155,15 @@ Edit `app/.env`:
 - In a simulator or on web, `http://localhost:8000` works as-is.
 - **On a real phone in Expo Go**, replace `localhost` with your laptop's LAN IP (run
   `ipconfig` / `ifconfig` to find it) — the phone and laptop must be on the same WiFi.
+- Set `EXPO_PUBLIC_MOCK=true` to run the entire app fully offline against the
+  built-in mock backend (`app/src/mock/store.ts`) — no FastAPI server or database
+  needed. Handy for demos and presentations; every real endpoint is mirrored.
 
 ```bash
 npx expo start
 ```
 
-Scan the QR code with the **Expo Go** app.
+Scan the QR code with the **Expo Go** app, or press `w` to open it on the web.
 
 ---
 
@@ -124,7 +172,7 @@ Scan the QR code with the **Expo Go** app.
 - **Claude Code (Anthropic)** — used to design and build this entire application:
   backend API, database schema, frontend screens, and this README.
 - **Gemini (`gemini-2.5-flash`)**, called from `backend/app/llm.py` — powers the
-  teach-back grading, the "paste a message" explainer, and the Family Scam Alert
+  teach-back grading, the "check a message" explainer, and the Family Scam Alert
   scenario generator. Every one of these features has a deterministic non-AI fallback
   (keyword matching / a template) that activates automatically if the LLM call fails,
   times out (8s), or `MOCK_LLM=true` is set — so a flaky connection never breaks the
@@ -144,6 +192,18 @@ respective open-source licenses.
 - **SMS/WhatsApp/call screens are simulated** — every practice scenario is clearly
   labelled "PRACTICE — simulated message"; nothing sent or received is a real text,
   WhatsApp message, or phone call.
+- **Screenshot reading is simulated, not real OCR.** True on-device text recognition
+  needs either a native ML module (breaks Expo Go, needs a custom dev client) or a
+  cloud OCR API (needs network + a key, which this app deliberately avoids so it can
+  run fully offline). "Check a Message" and "Screen Samjhao" both simulate the scan
+  with a realistic delay and a small library of real-world templates instead — the
+  flow, timing, and UI are real; only the recognition step is a stand-in.
+- **Website link checks are rule-based, not a live threat-intel lookup** — they flag
+  structural red flags (missing HTTPS, suspicious TLDs, lookalike domains, link
+  shorteners) rather than querying a real-time blocklist API.
+- **Every "check" result defaults to caution by design** — the app never returns a
+  false sense of safety; ambiguous or unmatched content is still flagged with
+  generic red flags and clear next steps, rather than being marked "safe."
 - **Voice note downloads are unauthenticated** — `expo-audio`'s player can't attach an
   Authorization header to a remote URL, so that one endpoint relies on the family code
   + random voice ID instead of a JWT. Acceptable for a local demo, not for production.
@@ -151,7 +211,7 @@ respective open-source licenses.
   specific learner — fine for the common one-Helper-one-Learner demo case, a known
   simplification for families with multiple learners.
 - **No RAG / vector search.** An unrelated Qdrant collection existed in the shared
-  `.env` this project's cluster came from; it isn't used anywhere in Practice Mode.
+  `.env` this project's cluster came from; it isn't used anywhere in this app.
 - **Single-server, no horizontal scaling** — WebSocket connections are held in an
   in-process dictionary (`app/ws_manager.py`), fine for a hackathon demo, not for
   multiple backend instances.
