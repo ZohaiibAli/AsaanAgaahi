@@ -1,0 +1,16 @@
+- generic [ref=f5e18]:
+  - generic [ref=f5e19]: Koi Message Paste Karein
+  - generic [ref=f5e21]:
+    - tab " Likh Kar" [ref=f5e22] [cursor=pointer]:
+      - generic [ref=f5e23]:
+        - generic [ref=f5e24]: 
+        - generic [ref=f5e25]: Likh Kar
+    - tab " Screenshot Se" [ref=f5e26] [cursor=pointer]:
+      - generic [ref=f5e27]:
+        - generic [ref=f5e28]: 
+        - generic [ref=f5e29]: Screenshot Se
+  - textbox "Yahan message paste ya type karein..." [ref=f5e31]: "URGENT: aapka account OTP ke bina block ho jayega, is link par click karein turant"
+  - generic [ref=f5e32]:
+    - button "Check Karein" [disabled]:
+      - progressbar [ref=f5e41]
+  - button "Meri Progress" [ref=f5e37] [cursor=pointer]

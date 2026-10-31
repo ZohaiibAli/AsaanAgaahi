@@ -1,0 +1,38 @@
+- generic [ref=f5e18]:
+  - generic [ref=f5e19]: Koi Message Paste Karein
+  - generic [ref=f5e21]:
+    - tab " Likh Kar" [ref=f5e22] [cursor=pointer]:
+      - generic [ref=f5e23]:
+        - generic [ref=f5e24]: 
+        - generic [ref=f5e25]: Likh Kar
+    - tab " Screenshot Se" [ref=f5e26] [cursor=pointer]:
+      - generic [ref=f5e27]:
+        - generic [ref=f5e28]: 
+        - generic [ref=f5e29]: Screenshot Se
+  - textbox "Yahan message paste ya type karein..." [ref=f5e31]: "URGENT: aapka account OTP ke bina block ho jayega, is link par click karein turant"
+  - button "Check Karein" [ref=f5e46] [cursor=pointer]
+  - generic [ref=f5e49]:
+    - generic [ref=f5e50]:
+      - generic [ref=f5e51]:
+        - generic [ref=f5e52]: 
+        - generic [ref=f5e53]: Yeh Scam Lagta Hai
+      - button "Sunein" [active] [ref=f5e54] [cursor=pointer]:
+        - generic [ref=f5e55]: 
+    - generic [ref=f5e57]:
+      - generic [ref=f5e58]:
+        - generic [ref=f5e59]: 
+        - generic [ref=f5e60]: Yeh OTP ya security code maang raha hai — yeh kabhi kisi ko nahi dena chahiye.
+      - generic [ref=f5e61]:
+        - generic [ref=f5e62]: 
+        - generic [ref=f5e63]: Account band hone ki dhamki de kar jaldi mein faisla karwana chah raha hai.
+      - generic [ref=f5e64]:
+        - generic [ref=f5e65]: 
+        - generic [ref=f5e66]: Ek anjaan link shamil hai — official companies aise ajeeb links istemal nahi kartein.
+      - generic [ref=f5e67]:
+        - generic [ref=f5e68]: 
+        - generic [ref=f5e69]: Bohat jaldi faisla karwaya ja raha hai — yeh dabao dalne ka tareeqa hai.
+    - generic [ref=f5e70]: Is link par click na karein. Apne bank ya company ko unke official number par khud call karein, sirf unhi logon se poochain jin par aap bharosa karte hain.
+    - generic [ref=f5e72]:
+      - generic [ref=f5e73]: 
+      - generic [ref=f5e74]: otp_caller
+  - button "Meri Progress" [ref=f5e37] [cursor=pointer]

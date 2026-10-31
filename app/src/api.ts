@@ -130,7 +130,14 @@ export const teachback = async (body: { scenario_id: string; answer_text: string
 export const explain = async (body: { message_text: string }) =>
   MOCK
     ? mockApi.explain(await getToken(), body)
-    : post<{ verdict: string; red_flags: string[]; what_to_do: string; practice_suggestion: string | null }>("/explain", body);
+    : post<{
+        verdict: string;
+        red_flags: string[];
+        red_flags_ur?: string[];
+        what_to_do: string;
+        what_to_do_ur?: string;
+        practice_suggestion: string | null;
+      }>("/explain", body);
 
 // ---------- helper actions ----------
 export const createAlert = async (body: { text: string; note?: string }) =>

@@ -169,7 +169,7 @@ export default function Paste() {
               </Text>
             </View>
             <ReadAloudButton
-              text={[...(result.red_flags || []), result.what_to_do].join(". ")}
+              text={[...(result.red_flags_ur ?? result.red_flags ?? []), result.what_to_do_ur ?? result.what_to_do].join(". ")}
             />
           </Card>
 

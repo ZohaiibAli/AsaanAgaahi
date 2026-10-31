@@ -592,16 +592,25 @@ async function explain(token: string | null, body: { message_text: string }) {
   const user = userFromToken(token);
   const lang = user.language;
   const flags: string[] = [];
+  const flagsUr: string[] = [];
   let suggestion: string | null = null;
   for (const [pattern, explanation, scenario] of KEYWORD_RULES) {
     if (pattern.test(body.message_text)) {
       flags.push((explanation as any)[lang] ?? explanation.en);
+      flagsUr.push(explanation.ur);
       suggestion = suggestion || scenario;
     }
   }
   const verdict = flags.length >= 2 ? "likely_scam" : flags.length === 1 ? "not_sure" : "looks_safe";
   const whatToDo = flags.length ? WHAT_TO_DO : WHAT_TO_DO_SAFE;
-  return { verdict, red_flags: flags, what_to_do: (whatToDo as any)[lang] ?? whatToDo.en, practice_suggestion: suggestion };
+  return {
+    verdict,
+    red_flags: flags,
+    red_flags_ur: flagsUr,
+    what_to_do: (whatToDo as any)[lang] ?? whatToDo.en,
+    what_to_do_ur: whatToDo.ur,
+    practice_suggestion: suggestion,
+  };
 }
 
 // ---------- helper actions ----------
