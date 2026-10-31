@@ -127,17 +127,23 @@ export const teachback = async (body: { scenario_id: string; answer_text: string
     ? mockApi.teachback(await getToken(), body)
     : post<{ understood: boolean; caught: string[]; missed: string[]; feedback: string }>("/teachback", body);
 
-export const explain = async (body: { message_text: string }) =>
-  MOCK
-    ? mockApi.explain(await getToken(), body)
-    : post<{
-        verdict: string;
-        red_flags: string[];
-        red_flags_ur?: string[];
-        what_to_do: string;
-        what_to_do_ur?: string;
-        practice_suggestion: string | null;
-      }>("/explain", body);
+type ExplainResult = {
+  verdict: string;
+  red_flags: string[];
+  red_flags_ur?: string[];
+  what_to_do: string;
+  what_to_do_ur?: string;
+  practice_suggestion: string | null;
+};
+
+export const explain = async (body: { message_text: string }): Promise<ExplainResult> =>
+  MOCK ? mockApi.explain(await getToken(), body) : post<ExplainResult>("/explain", body);
+
+// There's no dedicated "/explain-url" endpoint on the real backend yet, so the live
+// path reuses the message explainer with the link as the body — its LLM prompt
+// handles arbitrary pasted text fine. The mock path has its own URL-specific checks.
+export const explainUrl = async (body: { url: string }): Promise<ExplainResult> =>
+  MOCK ? mockApi.explainUrl(await getToken(), body) : post<ExplainResult>("/explain", { message_text: body.url });
 
 // ---------- helper actions ----------
 export const createAlert = async (body: { text: string; note?: string }) =>

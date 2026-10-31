@@ -1,0 +1,20 @@
+- generic [ref=f7e18]:
+  - generic [ref=f7e19]: Koi Message Paste Karein
+  - generic [ref=f7e21]:
+    - tab " Likh Kar" [ref=f7e22] [cursor=pointer]:
+      - generic [ref=f7e23]:
+        - generic [ref=f7e24]: 
+        - generic [ref=f7e25]: Likh Kar
+    - tab " Screenshot Se" [ref=f7e26] [cursor=pointer]:
+      - generic [ref=f7e27]:
+        - generic [ref=f7e28]: 
+        - generic [ref=f7e29]: Screenshot Se
+    - tab " Website Link" [ref=f7e30] [cursor=pointer]:
+      - generic [ref=f7e31]:
+        - generic [ref=f7e32]: 
+        - generic [ref=f7e33]: Website Link
+  - textbox "Website ka link yahan paste karein (jaise https://...)" [ref=f7e45]: http://hbl-bank-verify.xyz/login
+  - generic [ref=f7e36]:
+    - button "Link Check Karein" [disabled]:
+      - progressbar [ref=f7e46]
+  - button "Meri Progress" [ref=f7e41] [cursor=pointer]

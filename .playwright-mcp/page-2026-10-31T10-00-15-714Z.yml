@@ -1,0 +1,27 @@
+- generic [ref=f7e18]:
+  - generic [ref=f7e19]: Koi Message Paste Karein
+  - generic [ref=f7e21]:
+    - tab " Likh Kar" [ref=f7e22] [cursor=pointer]:
+      - generic [ref=f7e23]:
+        - generic [ref=f7e24]: 
+        - generic [ref=f7e25]: Likh Kar
+    - tab " Screenshot Se" [ref=f7e26] [cursor=pointer]:
+      - generic [ref=f7e27]:
+        - generic [ref=f7e28]: 
+        - generic [ref=f7e29]: Screenshot Se
+    - tab " Website Link" [ref=f7e30] [cursor=pointer]:
+      - generic [ref=f7e31]:
+        - generic [ref=f7e32]: 
+        - generic [ref=f7e33]: Website Link
+  - generic [ref=f7e89]:
+    - generic [ref=f7e99]:
+      - generic [ref=f7e100]: 
+      - generic [ref=f7e101]: System ne parh liya
+    - generic [ref=f7e102]:
+      - generic [ref=f7e103]: Nikala gaya message
+      - generic [ref=f7e104]: "Facebook Ad: Pakistan Govt Relief Program — har ghar ko Rs. 50,000 mil raha hai. Apply karne ke liye apna CNIC number aur mobile wallet PIN is form mein darj karein. Limited slots available!"
+    - generic [ref=f7e105] [cursor=pointer]: Dobara Screenshot Chunein
+  - generic [ref=f7e36]:
+    - button "Check Karein" [disabled]:
+      - progressbar [ref=f7e108]
+  - button "Meri Progress" [ref=f7e41] [cursor=pointer]

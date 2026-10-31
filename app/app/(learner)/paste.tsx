@@ -2,7 +2,7 @@ import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { explain } from "../../src/api";
+import { explain, explainUrl } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
 import { Icon } from "../../src/components/Icon";
@@ -14,7 +14,7 @@ import { useI18n } from "../../src/i18n";
 import { scanScreenshotText } from "../../src/ocrSim";
 import { spacing, typography, useTheme } from "../../src/theme";
 
-type Tab = "type" | "screenshot";
+type Tab = "type" | "screenshot" | "link";
 
 const VERDICT_KEY: Record<string, "verdict_likely_scam" | "verdict_looks_safe" | "verdict_not_sure"> = {
   likely_scam: "verdict_likely_scam",
@@ -39,11 +39,14 @@ export default function Paste() {
   const [scanning, setScanning] = useState(false);
   const [extractedText, setExtractedText] = useState("");
 
+  // "Website Link" tab
+  const [linkText, setLinkText] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Awaited<ReturnType<typeof explain>> | null>(null);
   const [error, setError] = useState("");
 
-  const text = tab === "type" ? typedText : extractedText;
+  const text = tab === "type" ? typedText : tab === "link" ? linkText : extractedText;
 
   const onPickScreenshot = async () => {
     setError("");
@@ -71,7 +74,7 @@ export default function Paste() {
     setLoading(true);
     setError("");
     try {
-      setResult(await explain({ message_text: text }));
+      setResult(tab === "link" ? await explainUrl({ url: text }) : await explain({ message_text: text }));
     } catch (e: any) {
       setError(e.message);
     } finally {
@@ -86,8 +89,10 @@ export default function Paste() {
       <ScreenHeader title={t("paste_title")} />
 
       <View style={[styles.tabs, { backgroundColor: colors.surfaceAlt, borderColor: colors.border }]}>
-        {(["type", "screenshot"] as Tab[]).map((key) => {
+        {(["type", "screenshot", "link"] as Tab[]).map((key) => {
           const active = tab === key;
+          const TabIcon = key === "type" ? Icon.pencil : key === "screenshot" ? Icon.camera : Icon.globe;
+          const labelKey = key === "type" ? "tab_type_message" : key === "screenshot" ? "tab_screenshot_message" : "tab_link_message";
           return (
             <Pressable
               key={key}
@@ -96,14 +101,13 @@ export default function Paste() {
               accessibilityState={{ selected: active }}
               style={[styles.tab, active && { backgroundColor: colors.primary }]}
             >
-              <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-                {key === "type" ? (
-                  <Icon.pencil size={16} color={active ? colors.onPrimary : colors.text} />
-                ) : (
-                  <Icon.camera size={16} color={active ? colors.onPrimary : colors.text} />
-                )}
-                <Text style={[typography.bodyBold, { color: active ? colors.onPrimary : colors.text }]}>
-                  {t(key === "type" ? "tab_type_message" : "tab_screenshot_message")}
+              <View style={{ alignItems: "center", gap: 4 }}>
+                <TabIcon size={16} color={active ? colors.onPrimary : colors.text} />
+                <Text
+                  style={[typography.caption, { fontWeight: "700", color: active ? colors.onPrimary : colors.text, textAlign: "center" }]}
+                  numberOfLines={1}
+                >
+                  {t(labelKey)}
                 </Text>
               </View>
             </Pressable>
@@ -119,6 +123,14 @@ export default function Paste() {
           multiline
           numberOfLines={5}
           style={{ minHeight: 120, textAlignVertical: "top" }}
+        />
+      ) : tab === "link" ? (
+        <TextField
+          value={linkText}
+          onChangeText={setLinkText}
+          placeholder={t("link_placeholder")}
+          autoCapitalize="none"
+          keyboardType="url"
         />
       ) : !screenshotUri ? (
         <Pressable onPress={onPickScreenshot}>
@@ -156,7 +168,12 @@ export default function Paste() {
         </Card>
       )}
 
-      <Button label={t("check_message")} onPress={onCheck} loading={loading} disabled={text.trim().length < 5 || scanning} />
+      <Button
+        label={tab === "link" ? t("check_link") : t("check_message")}
+        onPress={onCheck}
+        loading={loading}
+        disabled={text.trim().length < (tab === "link" ? 4 : 5) || scanning}
+      />
       {error ? <Text style={{ color: colors.warning, marginTop: spacing.sm }}>{error}</Text> : null}
 
       {result && VerdictIcon && (

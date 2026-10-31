@@ -61,6 +61,8 @@ export const Icon = {
   idCard: themed(MaterialCommunityIcons, "card-account-details-outline" satisfies MCIName),
   lockClosed: themed(Ionicons, "lock-closed" satisfies IoniconName),
   listNumbers: themed(MaterialCommunityIcons, "format-list-numbered" satisfies MCIName),
+  globe: themed(Ionicons, "globe-outline" satisfies IoniconName),
+  link: themed(Ionicons, "link" satisfies IoniconName),
   // Confidence scale, 1 → 5 (facial-expression line icons instead of emoji faces)
   face1: themed(MaterialCommunityIcons, "emoticon-sad-outline" satisfies MCIName),
   face2: themed(MaterialCommunityIcons, "emoticon-confused-outline" satisfies MCIName),

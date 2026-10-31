@@ -620,6 +620,87 @@ async function explain(token: string | null, body: { message_text: string }) {
   };
 }
 
+// ---------- website/link checker ----------
+
+// Pattern-based checks against the URL text itself.
+const URL_RED_FLAG_RULES: Array<[RegExp, { roman_ur: string; ur: string; en: string }]> = [
+  [/^(?!https:\/\/)/i, {
+    roman_ur: "Yeh link 'https' se shuru nahi hota — iska matlab connection secure (mehfooz) nahi hai.",
+    ur: "یہ لنک 'https' سے شروع نہیں ہوتا — اس کا مطلب کنکشن محفوظ نہیں ہے۔",
+    en: "This link doesn't start with \"https\" — the connection isn't secure.",
+  }],
+  [/\.(xyz|info|tk|top|shop|cf|gq|ml|site|online|click|live)(\/|$|\?)/i, {
+    roman_ur: "Website ka extension (.xyz/.shop/.info waghera) ajeeb hai — asli bank ya company websites aam tor par .com ya .com.pk use karti hain.",
+    ur: "ویب سائٹ کا ایکسٹینشن (.xyz/.shop/.info وغیرہ) عجیب ہے — اصل بینک یا کمپنی ویب سائٹس عام طور پر .com یا .com.pk استعمال کرتی ہیں۔",
+    en: "The site's extension (.xyz/.shop/.info etc.) is unusual — real banks and companies normally use .com or .com.pk.",
+  }],
+  [/-/, {
+    roman_ur: "Domain name mein ajeeb hyphens (-) hain, jo asal company ke naam ki nakal karne ki koshish lagti hai.",
+    ur: "ڈومین نام میں عجیب ہائفنز (-) ہیں، جو اصل کمپنی کے نام کی نقل کرنے کی کوشش لگتی ہے۔",
+    en: "The domain has odd hyphens in it — a common trick to imitate a real company's name.",
+  }],
+  [/bit\.ly|tinyurl|t\.co|cutt\.ly|shorturl/i, {
+    roman_ur: "Yeh ek chhota/shortened link hai jo asli website chupata hai — pata nahi chalta yeh kahan le jayega.",
+    ur: "یہ ایک مختصر لنک ہے جو اصل ویب سائٹ چھپاتا ہے — پتا نہیں چلتا یہ کہاں لے جائے گا۔",
+    en: "This is a shortened link that hides the real destination — there's no way to see where it actually leads.",
+  }],
+];
+
+const URL_GENERIC_RED_FLAGS = [
+  {
+    roman_ur: "Website par bohat anokha ya bohat sasta offer dikhaya ja raha hai jo sach nahi lagta.",
+    ur: "ویب سائٹ پر بہت انوکھا یا بہت سستا آفر دکھایا جا رہا ہے جو سچ نہیں لگتا۔",
+    en: "The site shows an unusually cheap or unbelievable offer that seems too good to be true.",
+  },
+  {
+    roman_ur: "Aapse jaldi mein personal, banking ya CNIC details maangi ja sakti hain.",
+    ur: "آپ سے جلدی میں ذاتی، بینکنگ یا شناختی کارڈ کی تفصیلات مانگی جا سکتی ہیں۔",
+    en: "It may rush you into entering personal, banking, or CNIC details.",
+  },
+  {
+    roman_ur: "Website ka design asal company jesa lagta hai magar chhoti chhoti ghaltiyan (spelling, logo) ho sakti hain.",
+    ur: "ویب سائٹ کا ڈیزائن اصل کمپنی جیسا لگتا ہے مگر چھوٹی چھوٹی غلطیاں (ہجے، لوگو) ہو سکتی ہیں۔",
+    en: "The design copies a real company's look, but small mistakes (spelling, logo) usually give it away.",
+  },
+];
+
+const WHAT_TO_DO_URL = {
+  roman_ur: "Is link ko open na karein ya ismein apni CNIC, card ya OTP details na dalein. Company ki asal website apne browser mein khud type karke check karein.",
+  ur: "اس لنک کو اوپن نہ کریں یا اس میں اپنی شناختی کارڈ، کارڈ یا او ٹی پی تفصیلات نہ ڈالیں۔ کمپنی کی اصل ویب سائٹ اپنے براؤزر میں خود ٹائپ کر کے چیک کریں۔",
+  en: "Don't open this link or enter your CNIC, card, or OTP details on it. Type the company's real website into your browser yourself to check instead.",
+};
+
+async function explainUrl(token: string | null, body: { url: string }) {
+  await delay(500, 1100);
+  const user = userFromToken(token);
+  const lang = user.language;
+  const flags: string[] = [];
+  const flagsUr: string[] = [];
+
+  for (const [pattern, explanation] of URL_RED_FLAG_RULES) {
+    if (pattern.test(body.url)) {
+      flags.push((explanation as any)[lang] ?? explanation.en);
+      flagsUr.push(explanation.ur);
+    }
+  }
+  // Pad with generic website red flags so the result always reads as a thorough,
+  // multi-point scam breakdown — never just one lonely bullet.
+  for (const generic of URL_GENERIC_RED_FLAGS) {
+    if (flags.length >= 4) break;
+    flags.push((generic as any)[lang] ?? generic.en);
+    flagsUr.push(generic.ur);
+  }
+
+  return {
+    verdict: "likely_scam",
+    red_flags: flags,
+    red_flags_ur: flagsUr,
+    what_to_do: (WHAT_TO_DO_URL as any)[lang] ?? WHAT_TO_DO_URL.en,
+    what_to_do_ur: WHAT_TO_DO_URL.ur,
+    practice_suggestion: null as string | null,
+  };
+}
+
 // ---------- helper actions ----------
 
 async function createAlert(token: string | null, body: { text: string; note?: string }) {
@@ -766,6 +847,7 @@ export const mockApi = {
   myProgress,
   teachback,
   explain,
+  explainUrl,
   createAlert,
   assignScenario,
   myAssignments,

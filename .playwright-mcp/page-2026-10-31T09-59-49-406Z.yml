@@ -1,0 +1,40 @@
+- generic [ref=f7e18]:
+  - generic [ref=f7e19]: Koi Message Paste Karein
+  - generic [ref=f7e21]:
+    - tab " Likh Kar" [ref=f7e22] [cursor=pointer]:
+      - generic [ref=f7e23]:
+        - generic [ref=f7e24]: 
+        - generic [ref=f7e25]: Likh Kar
+    - tab " Screenshot Se" [active] [ref=f7e26] [cursor=pointer]:
+      - generic [ref=f7e27]:
+        - generic [ref=f7e28]: 
+        - generic [ref=f7e29]: Screenshot Se
+    - tab " Website Link" [ref=f7e30] [cursor=pointer]:
+      - generic [ref=f7e31]:
+        - generic [ref=f7e32]: 
+        - generic [ref=f7e33]: Website Link
+  - generic [ref=f7e85] [cursor=pointer]:
+    - generic [ref=f7e86]: 
+    - generic [ref=f7e87]: Screenshot Chunein
+    - generic [ref=f7e88]: Jo message check karwana hai uska screenshot chunein — system khud parh kar check kar dega, aapko kuch likhna nahi hoga.
+  - generic [ref=f7e36]:
+    - button "Check Karein" [disabled]
+  - generic [ref=f7e54]:
+    - generic [ref=f7e55]:
+      - generic [ref=f7e56]:
+        - generic [ref=f7e57]: 
+        - generic [ref=f7e58]: Yeh Scam Lagta Hai
+      - button "Sunein" [ref=f7e59] [cursor=pointer]:
+        - generic [ref=f7e60]: 
+    - generic [ref=f7e62]:
+      - generic [ref=f7e63]:
+        - generic [ref=f7e64]: 
+        - generic [ref=f7e65]: Website par bohat anokha ya bohat sasta offer dikhaya ja raha hai jo sach nahi lagta.
+      - generic [ref=f7e66]:
+        - generic [ref=f7e67]: 
+        - generic [ref=f7e68]: Aapse jaldi mein personal, banking ya CNIC details maangi ja sakti hain.
+      - generic [ref=f7e69]:
+        - generic [ref=f7e70]: 
+        - generic [ref=f7e71]: Website ka design asal company jesa lagta hai magar chhoti chhoti ghaltiyan (spelling, logo) ho sakti hain.
+    - generic [ref=f7e75]: Is link ko open na karein ya ismein apni CNIC, card ya OTP details na dalein. Company ki asal website apne browser mein khud type karke check karein.
+  - button "Meri Progress" [ref=f7e41] [cursor=pointer]
