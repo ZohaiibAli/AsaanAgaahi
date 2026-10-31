@@ -3,6 +3,7 @@ import { useFocusEffect, useRouter } from "expo-router";
 import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import { listScenarios, myAssignments, Scenario } from "../../src/api";
 import { Card } from "../../src/components/Card";
+import { HowToUseModal } from "../../src/components/HowToUseModal";
 import { Icon } from "../../src/components/Icon";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
 import { NeedHelpButton } from "../../src/components/NeedHelpButton";
@@ -26,6 +27,7 @@ export default function LearnerHome() {
   const [pendingAssignmentId, setPendingAssignmentId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [showHowTo, setShowHowTo] = useState(false);
 
   const load = useCallback(() => {
     setLoading(true);
@@ -51,9 +53,28 @@ export default function LearnerHome() {
       <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.md }}>
         <Text style={[typography.title, { color: colors.primary }]}>{t("app_name")}</Text>
         <View style={{ flexDirection: "row", gap: spacing.sm }}>
+          <Pressable
+            onPress={() => setShowHowTo(true)}
+            accessibilityRole="button"
+            accessibilityLabel={t("how_to_use")}
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: colors.surfaceAlt,
+              borderWidth: 1,
+              borderColor: colors.border,
+            }}
+          >
+            <Icon.help size={22} color={colors.primary} />
+          </Pressable>
           <ThemeToggle />
         </View>
       </View>
+
+      <HowToUseModal visible={showHowTo} onClose={() => setShowHowTo(false)} />
       <Text style={[typography.body, { color: colors.textMuted, marginBottom: spacing.md }]}>
         {user?.name ? `${t("im_learning")} — ${user.name}` : t("im_learning")}
       </Text>

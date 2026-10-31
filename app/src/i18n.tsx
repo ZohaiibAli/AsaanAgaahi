@@ -136,6 +136,51 @@ const STRINGS = {
   translate_jargon_heading: { roman_ur: "Mushkil Alfaz Ki Aasaan Wazahat", ur: "مشکل الفاظ کی آسان وضاحت", en: "Hard words, explained simply" },
   translate_steps_heading: { roman_ur: "Yeh Kaam Mehfooz Tareeqe Se Kaise Karein", ur: "یہ کام محفوظ طریقے سے کیسے کریں", en: "How to do this safely" },
   translate_security_heading: { roman_ur: "Hifazati Baatein", ur: "حفاظتی باتیں", en: "Security tips" },
+
+  how_to_use: { roman_ur: "Istemal Kaise Karein", ur: "استعمال کیسے کریں", en: "How to Use" },
+  how_to_use_intro: {
+    roman_ur: "AsaanAgaahi aapko scam pehchanna sikhati hai, practice ke zariye — bilkul mehfooz tareeqe se, asli nuqsan ke bina. Neeche har feature ka tareeqa dekh lein.",
+    ur: "آسان آگاہی آپ کو اسکیم پہچاننا سکھاتی ہے، پریکٹس کے ذریعے — بالکل محفوظ طریقے سے، اصل نقصان کے بغیر۔ نیچے ہر فیچر کا طریقہ دیکھ لیں۔",
+    en: "AsaanAgaahi teaches you to spot scams through practice — completely safely, with no real risk. Here's how each part of the app works.",
+  },
+  how_to_use_practice_title: { roman_ur: "1. Practice Shuru Karein", ur: "1۔ پریکٹس شروع کریں", en: "1. Start Practice" },
+  how_to_use_practice_desc: {
+    roman_ur: "Nakli scam messages par practice karein. Message parhein, jo hissa ajeeb lage usay dabayein, phir faisla karein 'Scam Hai' ya 'Theek Lagta Hai'. Hint bhi le sakte hain.",
+    ur: "نقلی اسکیم پیغامات پر پریکٹس کریں۔ پیغام پڑھیں، جو حصہ عجیب لگے اسے دبائیں، پھر فیصلہ کریں 'اسکیم ہے' یا 'ٹھیک لگتا ہے'۔ ہنٹ بھی لے سکتے ہیں۔",
+    en: "Practice on simulated scam messages. Read the message, tap the parts that look suspicious, then decide \"It's a Scam\" or \"Looks Safe\". You can also ask for hints.",
+  },
+  how_to_use_paste_title: { roman_ur: "2. Koi Message Check Karayein", ur: "2۔ کوئی میسج چیک کرائیں", en: "2. Check a Message" },
+  how_to_use_paste_desc: {
+    roman_ur: "Koi bhi asli message, link ya screenshot check karayein — teen tareeqe hain: likh kar, screenshot se, ya website link paste karke. System turant bata dega kya khatra hai.",
+    ur: "کوئی بھی اصل پیغام، لنک یا اسکرین شاٹ چیک کرائیں — تین طریقے ہیں: لکھ کر، اسکرین شاٹ سے، یا ویب سائٹ لنک پیسٹ کر کے۔ سسٹم فوراً بتا دے گا کیا خطرہ ہے۔",
+    en: "Check any real message, link, or screenshot — three ways: by typing, from a screenshot, or by pasting a website link. The system tells you right away what the risk is.",
+  },
+  how_to_use_translate_title: { roman_ur: "3. Banking/Portal Screen Samjhayein", ur: "3۔ بینکنگ/پورٹل اسکرین سمجھیں", en: "3. Explain a Banking/Portal Screen" },
+  how_to_use_translate_desc: {
+    roman_ur: "Apne banking app ya sarkari website ka screenshot dein — system mushkil alfaz (jaise 'Beneficiary', 'OTP') aasaan zabaan mein samjhayega aur mehfooz tareeqa batayega.",
+    ur: "اپنے بینکنگ ایپ یا سرکاری ویب سائٹ کا اسکرین شاٹ دیں — سسٹم مشکل الفاظ (جیسے 'بینیفیشری'، 'او ٹی پی') آسان زبان میں سمجھائے گا اور محفوظ طریقہ بتائے گا۔",
+    en: "Give a screenshot of your banking app or a government website — the system explains hard words (like \"Beneficiary\", \"OTP\") in plain language and shows you the safe way to do it.",
+  },
+  how_to_use_progress_title: { roman_ur: "4. Meri Progress", ur: "4۔ میری پیشرفت", en: "4. My Progress" },
+  how_to_use_progress_desc: {
+    roman_ur: "Dekhein aap kitna seekh chuke hain — kam hints, zyada sahi faisle, yeh sab yahan dikhta hai.",
+    ur: "دیکھیں آپ کتنا سیکھ چکے ہیں — کم ہنٹس، زیادہ صحیح فیصلے، یہ سب یہاں دکھتا ہے۔",
+    en: "See how much you've learned — fewer hints needed, more correct decisions, all tracked here.",
+  },
+  how_to_use_help_title: { roman_ur: "5. Samajh Nahi Aaya", ur: "5۔ سمجھ نہیں آیا", en: "5. I Don't Understand" },
+  how_to_use_help_desc: {
+    roman_ur: "Kahin bhi atak jayein to yeh button dabayein — aapki family turant madad ke liye pata chal jayegi.",
+    ur: "کہیں بھی اٹک جائیں تو یہ بٹن دبائیں — آپ کی فیملی فوراً مدد کے لیے پتا چل جائے گی۔",
+    en: "Stuck on anything? Tap this button — your family is notified right away to help you.",
+  },
+  how_to_use_lang_title: { roman_ur: "6. Zaban Aur Theme", ur: "6۔ زبان اور تھیم", en: "6. Language & Theme" },
+  how_to_use_lang_desc: {
+    roman_ur: "Upar se Roman Urdu, Urdu ya English mein switch karein, aur chand/dhoop ke icon se dark ya light mode badlein.",
+    ur: "اوپر سے رومن اردو، اردو یا انگریزی میں سوئچ کریں، اور چاند/دھوپ کے آئیکن سے ڈارک یا لائٹ موڈ بدلیں۔",
+    en: "Switch between Roman Urdu, Urdu, or English at the top, and toggle dark/light mode with the moon/sun icon.",
+  },
+  got_it: { roman_ur: "Samajh Gaya/Gayi", ur: "سمجھ گیا/گئی", en: "Got It" },
+  close: { roman_ur: "Band Karein", ur: "بند کریں", en: "Close" },
 } as const;
 
 type Key = keyof typeof STRINGS;

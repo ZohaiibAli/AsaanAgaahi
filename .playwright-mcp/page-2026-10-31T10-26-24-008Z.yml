@@ -1,0 +1,140 @@
+- generic [ref=f8e1]:
+  - generic [ref=f8e18]:
+    - generic [ref=f8e19]:
+      - generic [ref=f8e20]: AsaanAgaahi
+      - generic [ref=f8e21]:
+        - button "Istemal Kaise Karein" [ref=f8e22] [cursor=pointer]:
+          - generic [ref=f8e148]: 
+        - button "Switch to light mode" [ref=f8e23] [cursor=pointer]:
+          - generic [ref=f8e24]: 
+    - generic [ref=f8e25]: Main seekh raha/rahi hoon — Khalida Begum
+    - generic [ref=f8e27]:
+      - radio "Roman Urdu" [ref=f8e28] [cursor=pointer]
+      - radio "اردو" [ref=f8e30] [cursor=pointer]
+      - radio "English" [ref=f8e32] [cursor=pointer]
+    - generic [ref=f8e34]:
+      - generic [ref=f8e35]:
+        - generic [ref=f8e36]: 
+        - generic [ref=f8e37]: Practice Shuru Karein
+      - generic [ref=f8e38] [cursor=pointer]:
+        - generic [ref=f8e39]: Jhooti Courier Fee
+        - generic [ref=f8e40]: 
+    - generic [ref=f8e42] [cursor=pointer]:
+      - generic [ref=f8e149]: 
+      - generic [ref=f8e43]: Koi Message Check Karayein
+    - generic [ref=f8e45] [cursor=pointer]:
+      - generic [ref=f8e150]: 
+      - generic [ref=f8e46]: Banking/Portal Screen Samjhayein
+    - generic [ref=f8e48] [cursor=pointer]:
+      - generic [ref=f8e151]: 
+      - generic [ref=f8e49]: Meri Progress
+    - generic [ref=f8e50]: Practice Shuru Karein
+    - generic [ref=f8e53] [cursor=pointer]:
+      - generic [ref=f8e54]: 
+      - generic [ref=f8e56]:
+        - generic [ref=f8e57]: Easypaisa Inaam
+        - generic [ref=f8e58]: Easypaisa
+    - generic [ref=f8e61] [cursor=pointer]:
+      - generic [ref=f8e62]: 
+      - generic [ref=f8e64]:
+        - generic [ref=f8e65]: Account Band Ho Jayega
+        - generic [ref=f8e66]: JazzCash
+    - generic [ref=f8e69] [cursor=pointer]:
+      - generic [ref=f8e70]: 
+      - generic [ref=f8e72]:
+        - generic [ref=f8e73]: Jhooti BISP Payment
+        - generic [ref=f8e74]: BISP
+    - generic [ref=f8e77] [cursor=pointer]:
+      - generic [ref=f8e78]: 
+      - generic [ref=f8e80]:
+        - generic [ref=f8e81]: Jhooti FBR Tax Notice
+        - generic [ref=f8e82]: FBR
+    - generic [ref=f8e85] [cursor=pointer]:
+      - generic [ref=f8e86]: 
+      - generic [ref=f8e88]:
+        - generic [ref=f8e89]: OTP Maangne Wali Call
+        - generic [ref=f8e90]: Unknown Caller (claims to be from your Bank)
+    - generic [ref=f8e93] [cursor=pointer]:
+      - generic [ref=f8e94]: 󰖣
+      - generic [ref=f8e95]:
+        - generic [ref=f8e96]: Jhooti Courier Fee
+        - generic [ref=f8e97]: TCS Courier
+    - generic [ref=f8e100] [cursor=pointer]:
+      - generic [ref=f8e101]: 
+      - generic [ref=f8e103]:
+        - generic [ref=f8e104]: Asli Bank Alert
+        - generic [ref=f8e105]: Meezan Bank
+    - generic [ref=f8e108] [cursor=pointer]:
+      - generic [ref=f8e109]: 
+      - generic [ref=f8e111]:
+        - generic [ref=f8e112]: Asli Jazz Balance Alert
+        - generic [ref=f8e113]: Jazz
+    - generic [ref=f8e116] [cursor=pointer]:
+      - generic [ref=f8e117]: 
+      - generic [ref=f8e119]:
+        - generic [ref=f8e120]: Jhooti PTCL Bill Payment
+        - generic [ref=f8e121]: Unknown Number
+      - generic [ref=f8e122]: Family
+    - generic [ref=f8e126] [cursor=pointer]:
+      - generic [ref=f8e127]: 
+      - generic [ref=f8e129]:
+        - generic [ref=f8e130]: Family Alert Practice
+        - generic [ref=f8e131]: Shared by your family
+      - generic [ref=f8e132]: Family
+    - generic [ref=f8e136] [cursor=pointer]:
+      - generic [ref=f8e137]: 
+      - generic [ref=f8e139]:
+        - generic [ref=f8e140]: Family Alert Practice
+        - generic [ref=f8e141]: Shared by your family
+      - generic [ref=f8e142]: Family
+    - button "Samajh Nahi Aaya" [ref=f8e144] [cursor=pointer]:
+      - generic [ref=f8e153]: 
+    - generic [ref=f8e146] [cursor=pointer]: Logout
+  - generic:
+    - generic:
+      - generic:
+        - dialog:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: 
+                    - generic: Istemal Kaise Karein
+                  - button "Band Karein":
+                    - generic: 
+                - generic:
+                  - generic:
+                    - generic: AsaanAgaahi aapko scam pehchanna sikhati hai, practice ke zariye — bilkul mehfooz tareeqe se, asli nuqsan ke bina. Neeche har feature ka tareeqa dekh lein.
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 1. Practice Shuru Karein
+                        - generic: Nakli scam messages par practice karein. Message parhein, jo hissa ajeeb lage usay dabayein, phir faisla karein 'Scam Hai' ya 'Theek Lagta Hai'. Hint bhi le sakte hain.
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 2. Koi Message Check Karayein
+                        - generic: "Koi bhi asli message, link ya screenshot check karayein — teen tareeqe hain: likh kar, screenshot se, ya website link paste karke. System turant bata dega kya khatra hai."
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 3. Banking/Portal Screen Samjhayein
+                        - generic: Apne banking app ya sarkari website ka screenshot dein — system mushkil alfaz (jaise 'Beneficiary', 'OTP') aasaan zabaan mein samjhayega aur mehfooz tareeqa batayega.
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 4. Meri Progress
+                        - generic: Dekhein aap kitna seekh chuke hain — kam hints, zyada sahi faisle, yeh sab yahan dikhta hai.
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 5. Samajh Nahi Aaya
+                        - generic: Kahin bhi atak jayein to yeh button dabayein — aapki family turant madad ke liye pata chal jayegi.
+                    - generic:
+                      - generic: 
+                      - generic:
+                        - generic: 6. Zaban Aur Theme
+                        - generic: Upar se Roman Urdu, Urdu ya English mein switch karein, aur chand/dhoop ke icon se dark ya light mode badlein.
+                    - generic:
+                      - button "Samajh Gaya/Gayi" [active]
