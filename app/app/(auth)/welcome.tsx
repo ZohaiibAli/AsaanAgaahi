@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "expo-router";
 import { Text, View } from "react-native";
 import { Button } from "../../src/components/Button";
+import { Icon } from "../../src/components/Icon";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ThemeToggle } from "../../src/components/ThemeToggle";
@@ -20,7 +21,7 @@ export default function Welcome() {
       </View>
 
       <View style={{ alignItems: "center", marginTop: spacing.xl, marginBottom: spacing.xl }}>
-        <Text style={{ fontSize: 56 }}>🛡️</Text>
+        <Icon.shield size={56} color={colors.primary} />
         <Text style={[typography.title, { color: colors.primary, textAlign: "center", marginTop: spacing.md }]}>
           {t("welcome_title")}
         </Text>
@@ -33,8 +34,17 @@ export default function Welcome() {
         <LanguageToggle />
       </View>
 
-      <Button label={t("im_learning")} icon="🎓" onPress={() => router.push({ pathname: "/(auth)/register", params: { role: "learner" } })} />
-      <Button label={t("im_helping")} icon="🤝" variant="secondary" onPress={() => router.push({ pathname: "/(auth)/register", params: { role: "helper" } })} />
+      <Button
+        label={t("im_learning")}
+        icon={<Icon.learner size={20} color={colors.onPrimary} />}
+        onPress={() => router.push({ pathname: "/(auth)/register", params: { role: "learner" } })}
+      />
+      <Button
+        label={t("im_helping")}
+        icon={<Icon.helper size={20} color={colors.primary} />}
+        variant="secondary"
+        onPress={() => router.push({ pathname: "/(auth)/register", params: { role: "helper" } })}
+      />
 
       <View style={{ marginTop: spacing.lg, alignItems: "center" }}>
         <Button label={t("already_have_account")} variant="outline" onPress={() => router.push("/(auth)/login")} />

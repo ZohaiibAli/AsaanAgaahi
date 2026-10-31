@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import { myProgress } from "../../src/api";
 import { Card } from "../../src/components/Card";
+import { Icon } from "../../src/components/Icon";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ScreenHeader } from "../../src/components/ScreenHeader";
 import { useI18n } from "../../src/i18n";
@@ -36,9 +37,10 @@ export default function Progress() {
       <ScreenHeader title={t("progress_title")} />
 
       {!loading && rows.length >= 2 && firstHints !== null && lastHints !== null && lastHints < firstHints && (
-        <Card style={{ backgroundColor: colors.surfaceAlt, borderColor: colors.primary, borderWidth: 2 }}>
-          <Text style={[typography.bodyBold, { color: colors.primaryDark }]}>
-            🌱 {GENTLE_MESSAGE[lang](firstHints, lastHints)}
+        <Card style={{ backgroundColor: colors.surfaceAlt, borderColor: colors.primary, borderWidth: 2, flexDirection: "row", alignItems: "flex-start", gap: 8 }}>
+          <Icon.leaf size={18} color={colors.primaryDark} />
+          <Text style={[typography.bodyBold, { color: colors.primaryDark, flex: 1 }]}>
+            {GENTLE_MESSAGE[lang](firstHints, lastHints)}
           </Text>
         </Card>
       )}
@@ -47,8 +49,9 @@ export default function Progress() {
       {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}
 
       {!loading && rows.length === 0 && !error && (
-        <Card>
-          <Text style={[typography.body, { color: colors.textMuted, textAlign: "center" }]}>🌱 {t("progress_empty")}</Text>
+        <Card style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8 }}>
+          <Icon.leaf size={18} color={colors.textMuted} />
+          <Text style={[typography.body, { color: colors.textMuted, textAlign: "center" }]}>{t("progress_empty")}</Text>
         </Card>
       )}
 
@@ -80,13 +83,17 @@ export default function Progress() {
         .reverse()
         .map((r, i) => (
           <Card key={i}>
-            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
               <Text style={[typography.bodyBold, { color: colors.text }]}>{r.scenario_id}</Text>
-              <Text style={{ fontSize: 20 }}>{r.correct ? "✅" : "🤗"}</Text>
+              {r.correct ? <Icon.checkmarkCircle size={20} color={colors.success} /> : <Icon.heart size={20} color={colors.warning} />}
             </View>
-            <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>
-              {t("independence_score")}: {r.independence_score} · {t("need_hint")}: {r.hints_used}/3 · {r.confidence_before}→{r.confidence_after} 🙂
-            </Text>
+            <View style={{ flexDirection: "row", alignItems: "center", marginTop: 4 }}>
+              <Text style={[typography.caption, { color: colors.textMuted }]}>
+                {t("independence_score")}: {r.independence_score} · {t("need_hint")}: {r.hints_used}/3 · {r.confidence_before}
+              </Text>
+              <Icon.arrowForward size={12} color={colors.textMuted} />
+              <Text style={[typography.caption, { color: colors.textMuted }]}>{r.confidence_after}</Text>
+            </View>
           </Card>
         ))}
     </ScreenContainer>

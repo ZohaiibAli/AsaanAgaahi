@@ -7,6 +7,7 @@ import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
+import { Icon } from "../../src/components/Icon";
 import { ThemeToggle } from "../../src/components/ThemeToggle";
 import { useAuth } from "../../src/hooks/useAuth";
 import { pickLang, useI18n } from "../../src/i18n";
@@ -108,7 +109,10 @@ export default function Dashboard() {
 
       {data.help_requests?.length > 0 && (
         <>
-          <Text style={[typography.heading, { color: colors.text, marginTop: spacing.lg }]}>🙋 {t("need_help_button")}</Text>
+          <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.lg, gap: 8 }}>
+            <Icon.help size={20} color={colors.text} />
+            <Text style={[typography.heading, { color: colors.text }]}>{t("need_help_button")}</Text>
+          </View>
           {data.help_requests.slice(0, 5).map((h: any, i: number) => (
             <Card key={i} style={{ borderColor: colors.warning, borderWidth: 2 }}>
               <Text style={[typography.bodyBold, { color: colors.text }]}>{h.learner_name}</Text>
@@ -131,7 +135,10 @@ export default function Dashboard() {
         </>
       )}
 
-      <Text style={[typography.heading, { color: colors.text, marginTop: spacing.lg }]}>👪 {t("progress_title")}</Text>
+      <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.lg, gap: 8 }}>
+        <Icon.family size={20} color={colors.text} />
+        <Text style={[typography.heading, { color: colors.text }]}>{t("progress_title")}</Text>
+      </View>
       {data.learners?.length === 0 && <Text style={{ color: colors.textMuted }}>{t("pairing_create_subtitle")}</Text>}
       {data.learners?.map((l: any) => (
         <Card key={l.learner_id}>

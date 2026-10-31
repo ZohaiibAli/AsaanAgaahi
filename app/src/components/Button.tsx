@@ -1,6 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useRef } from "react";
-import { Animated, ActivityIndicator, Pressable, StyleSheet, Text } from "react-native";
+import { Animated, ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
 import { touchTarget, typography, useTheme } from "../theme";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   variant?: "primary" | "secondary" | "outline";
   disabled?: boolean;
   loading?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
 };
 
 export function Button({ label, onPress, variant = "primary", disabled, loading, icon }: Props) {
@@ -26,10 +26,10 @@ export function Button({ label, onPress, variant = "primary", disabled, loading,
   const content = loading ? (
     <ActivityIndicator color={textColor} />
   ) : (
-    <Text style={[typography.button, { color: textColor }]}>
-      {icon ? `${icon}  ` : ""}
-      {label}
-    </Text>
+    <View style={styles.row}>
+      {icon ? <View style={{ marginRight: 8 }}>{icon}</View> : null}
+      <Text style={[typography.button, { color: textColor }]}>{label}</Text>
+    </View>
   );
 
   return (
@@ -70,4 +70,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginVertical: 6,
   },
+  row: { flexDirection: "row", alignItems: "center" },
 });

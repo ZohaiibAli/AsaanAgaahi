@@ -3,6 +3,7 @@ import { useFocusEffect, useRouter } from "expo-router";
 import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import { listScenarios, myAssignments, Scenario } from "../../src/api";
 import { Card } from "../../src/components/Card";
+import { Icon } from "../../src/components/Icon";
 import { LanguageToggle } from "../../src/components/LanguageToggle";
 import { NeedHelpButton } from "../../src/components/NeedHelpButton";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
@@ -12,7 +13,7 @@ import { useLearnerRealtime } from "../../src/hooks/useLearnerRealtime";
 import { pickLang, useI18n } from "../../src/i18n";
 import { spacing, typography, useTheme } from "../../src/theme";
 
-const CHANNEL_ICON: Record<string, string> = { sms: "💬", whatsapp: "🟢", call: "📞" };
+const CHANNEL_ICON: Record<string, keyof typeof Icon> = { sms: "sms", whatsapp: "whatsapp", call: "call" };
 
 export default function LearnerHome() {
   const { colors } = useTheme();
@@ -63,27 +64,32 @@ export default function LearnerHome() {
 
       {(assignmentBanner || latestAlert) && (
         <Card style={{ borderColor: colors.primary, borderWidth: 2 }}>
-          <Text style={[typography.bodyBold, { color: colors.primary }]}>
-            {latestAlert ? t("from_a_real_message") : "✨ " + t("home_practice")}
-          </Text>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+            {latestAlert ? null : <Icon.sparkles size={16} color={colors.primary} />}
+            <Text style={[typography.bodyBold, { color: colors.primary }]}>
+              {latestAlert ? t("from_a_real_message") : t("home_practice")}
+            </Text>
+          </View>
           <Pressable
             onPress={() => router.push({ pathname: "/(learner)/play", params: { id: (latestAlert ?? assignmentBanner)!.scenario_id } })}
+            style={{ flexDirection: "row", alignItems: "center", marginTop: 4 }}
           >
-            <Text style={[typography.body, { color: colors.text, marginTop: 4 }]}>
-              {pickLang((latestAlert ?? assignmentBanner)!.title, lang)} →
-            </Text>
+            <Text style={[typography.body, { color: colors.text, flex: 1 }]}>{pickLang((latestAlert ?? assignmentBanner)!.title, lang)}</Text>
+            <Icon.arrowForward size={18} color={colors.text} />
           </Pressable>
         </Card>
       )}
 
       <Pressable onPress={() => router.push("/(learner)/paste")}>
-        <Card>
-          <Text style={typography.heading}>🔍 {t("home_paste")}</Text>
+        <Card style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <Icon.search size={20} color={colors.text} />
+          <Text style={typography.heading}>{t("home_paste")}</Text>
         </Card>
       </Pressable>
       <Pressable onPress={() => router.push("/(learner)/progress")}>
-        <Card>
-          <Text style={typography.heading}>📈 {t("home_progress")}</Text>
+        <Card style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <Icon.trending size={20} color={colors.text} />
+          <Text style={typography.heading}>{t("home_progress")}</Text>
         </Card>
       </Pressable>
 
@@ -94,36 +100,39 @@ export default function LearnerHome() {
       {loading && <ActivityIndicator color={colors.primary} style={{ marginVertical: spacing.md }} />}
       {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}
 
-      {scenarios.map((s) => (
-        <Pressable key={s.id} onPress={() => router.push({ pathname: "/(learner)/play", params: { id: s.id } })}>
-          <Card>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <View
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 22,
-                  backgroundColor: colors.surfaceAlt,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginRight: spacing.sm,
-                }}
-              >
-                <Text style={{ fontSize: 22 }}>{CHANNEL_ICON[s.channel] ?? "💬"}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={[typography.bodyBold, { color: colors.text }]}>{pickLang(s.title, lang)}</Text>
-                <Text style={[typography.caption, { color: colors.textMuted }]}>{s.sender}</Text>
-              </View>
-              {s.is_custom ? (
-                <View style={{ backgroundColor: colors.surfaceAlt, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 }}>
-                  <Text style={{ color: colors.primary, fontSize: 12, fontWeight: "700" }}>Family</Text>
+      {scenarios.map((s) => {
+        const ChannelIcon = Icon[CHANNEL_ICON[s.channel] ?? "sms"];
+        return (
+          <Pressable key={s.id} onPress={() => router.push({ pathname: "/(learner)/play", params: { id: s.id } })}>
+            <Card>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: 22,
+                    backgroundColor: colors.surfaceAlt,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginRight: spacing.sm,
+                  }}
+                >
+                  <ChannelIcon size={22} color={colors.primary} />
                 </View>
-              ) : null}
-            </View>
-          </Card>
-        </Pressable>
-      ))}
+                <View style={{ flex: 1 }}>
+                  <Text style={[typography.bodyBold, { color: colors.text }]}>{pickLang(s.title, lang)}</Text>
+                  <Text style={[typography.caption, { color: colors.textMuted }]}>{s.sender}</Text>
+                </View>
+                {s.is_custom ? (
+                  <View style={{ backgroundColor: colors.surfaceAlt, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 }}>
+                    <Text style={{ color: colors.primary, fontSize: 12, fontWeight: "700" }}>Family</Text>
+                  </View>
+                ) : null}
+              </View>
+            </Card>
+          </Pressable>
+        );
+      })}
 
       <NeedHelpButton />
 

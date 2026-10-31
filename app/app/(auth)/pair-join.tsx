@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { Text, View } from "react-native";
 import { pairJoin } from "../../src/api";
 import { Button } from "../../src/components/Button";
+import { Icon } from "../../src/components/Icon";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { TextField } from "../../src/components/TextField";
 import { useAuth } from "../../src/hooks/useAuth";
@@ -36,7 +37,7 @@ export default function PairJoin() {
   return (
     <ScreenContainer>
       <View style={{ alignItems: "center", marginTop: spacing.xl, marginBottom: spacing.xl }}>
-        <Text style={{ fontSize: 48 }}>👨‍👩‍👧</Text>
+        <Icon.family size={48} color={colors.primary} />
         <Text style={[typography.title, { color: colors.primary, textAlign: "center", marginTop: spacing.md }]}>
           {t("pairing_join_title")}
         </Text>

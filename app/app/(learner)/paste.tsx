@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import { explain } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
+import { Icon } from "../../src/components/Icon";
 import { ReadAloudButton } from "../../src/components/ReadAloudButton";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ScreenHeader } from "../../src/components/ScreenHeader";
@@ -17,7 +18,7 @@ const VERDICT_KEY: Record<string, "verdict_likely_scam" | "verdict_looks_safe" |
   not_sure: "verdict_not_sure",
 };
 const VERDICT_COLOR = (c: any, v: string) => (v === "likely_scam" ? c.warning : v === "looks_safe" ? c.success : c.primary);
-const VERDICT_ICON: Record<string, string> = { likely_scam: "⚠️", looks_safe: "✅", not_sure: "🤔" };
+const VERDICT_ICON: Record<string, keyof typeof Icon> = { likely_scam: "warning", looks_safe: "checkmarkCircle", not_sure: "thinking" };
 
 export default function Paste() {
   const { colors } = useTheme();
@@ -41,6 +42,8 @@ export default function Paste() {
     }
   };
 
+  const VerdictIcon = result ? Icon[VERDICT_ICON[result.verdict] ?? "thinking"] : null;
+
   return (
     <ScreenContainer>
       <ScreenHeader title={t("paste_title")} />
@@ -55,12 +58,15 @@ export default function Paste() {
       <Button label={t("check_message")} onPress={onCheck} loading={loading} disabled={text.trim().length < 5} />
       {error ? <Text style={{ color: colors.warning, marginTop: spacing.sm }}>{error}</Text> : null}
 
-      {result && (
+      {result && VerdictIcon && (
         <View style={{ marginTop: spacing.md }}>
           <Card style={{ borderColor: VERDICT_COLOR(colors, result.verdict), borderWidth: 2 }}>
-            <Text style={[typography.heading, { color: VERDICT_COLOR(colors, result.verdict) }]}>
-              {VERDICT_ICON[result.verdict] ?? "🤔"} {t(VERDICT_KEY[result.verdict] ?? "verdict_not_sure")}
-            </Text>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+              <VerdictIcon size={22} color={VERDICT_COLOR(colors, result.verdict)} />
+              <Text style={[typography.heading, { color: VERDICT_COLOR(colors, result.verdict) }]}>
+                {t(VERDICT_KEY[result.verdict] ?? "verdict_not_sure")}
+              </Text>
+            </View>
             <ReadAloudButton
               text={[...(result.red_flags || []), result.what_to_do].join(". ")}
             />
@@ -69,9 +75,10 @@ export default function Paste() {
           {result.red_flags?.length > 0 && (
             <Card>
               {result.red_flags.map((f, i) => (
-                <Text key={i} style={[typography.body, { color: colors.text, marginBottom: 6 }]}>
-                  🚩 {f}
-                </Text>
+                <View key={i} style={{ flexDirection: "row", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
+                  <Icon.flag size={16} color={colors.warning} />
+                  <Text style={[typography.body, { color: colors.text, flex: 1 }]}>{f}</Text>
+                </View>
               ))}
             </Card>
           )}
@@ -81,8 +88,9 @@ export default function Paste() {
           </Card>
 
           {result.practice_suggestion ? (
-            <Card style={{ backgroundColor: colors.surfaceAlt }}>
-              <Text style={[typography.body, { color: colors.primaryDark }]}>💡 {result.practice_suggestion}</Text>
+            <Card style={{ backgroundColor: colors.surfaceAlt, flexDirection: "row", alignItems: "flex-start", gap: 8 }}>
+              <Icon.bulb size={18} color={colors.primaryDark} />
+              <Text style={[typography.body, { color: colors.primaryDark, flex: 1 }]}>{result.practice_suggestion}</Text>
             </Card>
           ) : null}
         </View>

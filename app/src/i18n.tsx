@@ -81,10 +81,10 @@ const STRINGS = {
   record_voice: { roman_ur: "Voice Message Record Karein", ur: "وائس میسج ریکارڈ کریں", en: "Record a Voice Message" },
 
   alert_title: { roman_ur: "Asli Scam Message Share Karein", ur: "اصلی اسکیم میسج شیئر کریں", en: "Share a Real Scam Message" },
-  alert_tab_type: { roman_ur: "✍️ Likh Kar", ur: "✍️ لکھ کر", en: "✍️ Type It" },
-  alert_tab_screenshot: { roman_ur: "📷 Screenshot Se", ur: "📷 اسکرین شاٹ سے", en: "📷 From Screenshot" },
+  alert_tab_type: { roman_ur: "Likh Kar", ur: "لکھ کر", en: "Type It" },
+  alert_tab_screenshot: { roman_ur: "Screenshot Se", ur: "اسکرین شاٹ سے", en: "From Screenshot" },
   alert_text_label: { roman_ur: "Message paste karein", ur: "میسج پیسٹ کریں", en: "Paste the message" },
-  alert_pick_screenshot: { roman_ur: "📷 Screenshot Chunein", ur: "📷 اسکرین شاٹ چنیں", en: "📷 Choose a Screenshot" },
+  alert_pick_screenshot: { roman_ur: "Screenshot Chunein", ur: "اسکرین شاٹ چنیں", en: "Choose a Screenshot" },
   alert_pick_screenshot_hint: {
     roman_ur: "Scam message ka screenshot chunein — system khud parh kar practice round bana dega, aapko kuch likhna nahi hoga.",
     ur: "اسکیم میسج کا اسکرین شاٹ چنیں — سسٹم خود پڑھ کر پریکٹس راؤنڈ بنا دے گا، آپ کو کچھ لکھنا نہیں ہوگا۔",

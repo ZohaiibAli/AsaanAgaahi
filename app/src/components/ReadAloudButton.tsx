@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import { useI18n } from "../i18n";
 import { useReadAloud } from "../hooks/useReadAloud";
 import { useTheme } from "../theme";
+import { Icon } from "./Icon";
 
 export function ReadAloudButton({ text }: { text: string }) {
   const { colors } = useTheme();
@@ -16,7 +17,7 @@ export function ReadAloudButton({ text }: { text: string }) {
       accessibilityLabel={t("listen")}
       style={[styles.pill, { backgroundColor: colors.surfaceAlt, borderColor: colors.primary }]}
     >
-      <Text style={{ fontSize: 20 }}>{speaking ? "⏹️" : "🔊"}</Text>
+      {speaking ? <Icon.stopCircle size={20} color={colors.primary} /> : <Icon.volumeHigh size={20} color={colors.primary} />}
       <Text style={[styles.label, { color: colors.primary }]}>{t("listen")}</Text>
     </Pressable>
   );

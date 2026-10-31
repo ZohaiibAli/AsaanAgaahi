@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import { useLearnerRealtime } from "../hooks/useLearnerRealtime";
 import { useI18n } from "../i18n";
 import { typography, useTheme } from "../theme";
+import { Icon } from "./Icon";
 
 type Props = { scenario_id?: string; scenario_title?: string; step?: string; hints_used?: number };
 
@@ -25,7 +26,7 @@ export function NeedHelpButton(ctx: Props) {
       accessibilityLabel={t("need_help_button")}
       style={[styles.button, { backgroundColor: colors.surfaceAlt, borderColor: colors.primary }]}
     >
-      <Text style={{ fontSize: 20 }}>🙋</Text>
+      <Icon.help size={20} color={colors.primary} />
       <Text style={[typography.bodyBold, { color: colors.primary, marginLeft: 8 }]}>
         {sent ? t("help_sent") : t("need_help_button")}
       </Text>

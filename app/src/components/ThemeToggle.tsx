@@ -1,6 +1,7 @@
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable } from "react-native";
 import { useTheme } from "../theme";
+import { Icon } from "./Icon";
 
 export function ThemeToggle() {
   const { mode, toggleMode, colors } = useTheme();
@@ -20,7 +21,7 @@ export function ThemeToggle() {
         borderColor: colors.border,
       }}
     >
-      <Text style={{ fontSize: 22 }}>{mode === "dark" ? "🌙" : "☀️"}</Text>
+      {mode === "dark" ? <Icon.moon size={22} color={colors.primary} /> : <Icon.sunny size={22} color={colors.primary} />}
     </Pressable>
   );
 }

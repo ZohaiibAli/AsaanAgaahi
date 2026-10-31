@@ -5,6 +5,7 @@ import { getScenario, Scenario, submitProgress, teachback as teachbackApi } from
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
 import { ConfidenceScale } from "../../src/components/ConfidenceScale";
+import { Icon } from "../../src/components/Icon";
 import { NeedHelpButton } from "../../src/components/NeedHelpButton";
 import { ReadAloudButton } from "../../src/components/ReadAloudButton";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
@@ -166,9 +167,10 @@ export default function Play() {
         {hintsUsed > 0 && (
           <Card>
             {scenario.hints.slice(0, hintsUsed).map((h, i) => (
-              <Text key={i} style={[typography.body, { color: colors.primaryDark, marginBottom: 6 }]}>
-                💡 {pickLang(h, lang)}
-              </Text>
+              <View key={i} style={{ flexDirection: "row", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
+                <Icon.bulb size={16} color={colors.primaryDark} />
+                <Text style={[typography.body, { color: colors.primaryDark, flex: 1 }]}>{pickLang(h, lang)}</Text>
+              </View>
             ))}
           </Card>
         )}
@@ -189,27 +191,32 @@ export default function Play() {
     return (
       <ScreenContainer>
         <View style={{ alignItems: "center", marginTop: spacing.lg, marginBottom: spacing.md }}>
-          <Text style={{ fontSize: 56 }}>{correct ? "🎉" : "🤗"}</Text>
+          {correct ? <Icon.ribbon size={56} color={colors.success} /> : <Icon.heart size={56} color={colors.warning} />}
           <Text style={[typography.title, { color: correct ? colors.success : colors.warning, marginTop: spacing.sm }]}>
             {correct ? t("correct_title") : t("oops_title")}
           </Text>
           {!correct && <Text style={[typography.body, { color: colors.textMuted }]}>{t("oops_subtitle")}</Text>}
         </View>
 
-        <Card>
-          <Text style={[typography.bodyBold, { color: colors.text, marginBottom: spacing.sm }]}>
-            {correct ? "✅" : "⚠️"} {pickLang(scenario.consequence, lang)}
-          </Text>
+        <Card style={{ flexDirection: "row", alignItems: "flex-start", gap: 8 }}>
+          {correct ? <Icon.checkmarkCircle size={18} color={colors.text} /> : <Icon.warning size={18} color={colors.text} />}
+          <Text style={[typography.bodyBold, { color: colors.text, flex: 1 }]}>{pickLang(scenario.consequence, lang)}</Text>
         </Card>
 
         <Card>
-          <Text style={[typography.bodyBold, { color: colors.text, marginBottom: spacing.sm }]}>🚩</Text>
+          <View style={{ marginBottom: spacing.sm }}>
+            <Icon.flag size={18} color={colors.warning} />
+          </View>
           {scenario.segments
             .map((seg, i) => ({ seg, i }))
             .filter(({ seg }) => seg.is_red_flag)
             .map(({ seg, i }) => (
-              <View key={i} style={{ marginBottom: spacing.sm, flexDirection: "row" }}>
-                <Text style={{ fontSize: 16 }}>{flagged.has(i) ? "✅ " : "➡️ "}</Text>
+              <View key={i} style={{ marginBottom: spacing.sm, flexDirection: "row", alignItems: "flex-start", gap: 8 }}>
+                {flagged.has(i) ? (
+                  <Icon.checkmarkCircle size={16} color={colors.success} />
+                ) : (
+                  <Icon.arrowForward size={16} color={colors.textMuted} />
+                )}
                 <Text style={[typography.body, { color: colors.text, flex: 1 }]}>{pickLang(seg.why, lang)}</Text>
               </View>
             ))}
@@ -260,7 +267,7 @@ export default function Play() {
   return (
     <ScreenContainer>
       <View style={{ alignItems: "center", marginTop: spacing.xl }}>
-        <Text style={{ fontSize: 64 }}>🏆</Text>
+        <Icon.trophy size={64} color={colors.primary} />
         <Text style={[typography.title, { color: colors.primary, marginTop: spacing.md }]}>{t("independence_score")}</Text>
         <Text style={[typography.title, { color: colors.success, fontSize: 48 }]}>{independenceScore ?? "—"}</Text>
       </View>

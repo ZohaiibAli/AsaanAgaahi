@@ -5,6 +5,7 @@ import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "rea
 import { createAlert } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
+import { Icon } from "../../src/components/Icon";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ScreenHeader } from "../../src/components/ScreenHeader";
 import { TextField } from "../../src/components/TextField";
@@ -74,7 +75,7 @@ export default function Alert() {
     return (
       <ScreenContainer>
         <Card style={{ alignItems: "center", marginTop: 40 }}>
-          <Text style={{ fontSize: 48 }}>📨</Text>
+          <Icon.mail size={48} color={colors.success} />
           <Text style={[typography.heading, { color: colors.success, marginTop: 12, textAlign: "center" }]}>
             {t("alert_send")}
           </Text>
@@ -99,9 +100,16 @@ export default function Alert() {
               accessibilityState={{ selected: active }}
               style={[styles.tab, active && { backgroundColor: colors.primary }]}
             >
-              <Text style={[typography.bodyBold, { color: active ? colors.onPrimary : colors.text }]}>
-                {t(key === "type" ? "alert_tab_type" : "alert_tab_screenshot")}
-              </Text>
+              <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                {key === "type" ? (
+                  <Icon.pencil size={16} color={active ? colors.onPrimary : colors.text} />
+                ) : (
+                  <Icon.camera size={16} color={active ? colors.onPrimary : colors.text} />
+                )}
+                <Text style={[typography.bodyBold, { color: active ? colors.onPrimary : colors.text }]}>
+                  {t(key === "type" ? "alert_tab_type" : "alert_tab_screenshot")}
+                </Text>
+              </View>
             </Pressable>
           );
         })}
@@ -119,7 +127,7 @@ export default function Alert() {
       ) : !screenshotUri ? (
         <Pressable onPress={onPickScreenshot}>
           <Card style={{ alignItems: "center", paddingVertical: spacing.xl, borderStyle: "dashed", borderWidth: 2, borderColor: colors.primary }}>
-            <Text style={{ fontSize: 40 }}>📷</Text>
+            <Icon.camera size={40} color={colors.primary} />
             <Text style={[typography.bodyBold, { color: colors.primary, marginTop: spacing.sm }]}>{t("alert_pick_screenshot")}</Text>
             <Text style={[typography.caption, { color: colors.textMuted, textAlign: "center", marginTop: spacing.sm }]}>
               {t("alert_pick_screenshot_hint")}
@@ -136,7 +144,10 @@ export default function Alert() {
             </View>
           ) : (
             <>
-              <Text style={[typography.caption, { color: colors.success, marginTop: spacing.md }]}>✓ {t("scan_done")}</Text>
+              <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.md, gap: 6 }}>
+                <Icon.checkmarkCircle size={16} color={colors.success} />
+                <Text style={[typography.caption, { color: colors.success }]}>{t("scan_done")}</Text>
+              </View>
               <View style={{ backgroundColor: colors.surfaceAlt, borderRadius: 16, padding: spacing.md, marginTop: spacing.sm }}>
                 <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 4 }]}>{t("alert_extracted_label")}</Text>
                 <Text style={[typography.body, { color: colors.text }]}>{extractedText}</Text>

@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { spacing, typography, useTheme } from "../theme";
+import { Icon } from "./Icon";
 
 export function ScreenHeader({ title, showBack = true }: { title: string; showBack?: boolean }) {
   const { colors } = useTheme();
@@ -11,7 +12,7 @@ export function ScreenHeader({ title, showBack = true }: { title: string; showBa
     <View style={styles.row}>
       {showBack && router.canGoBack() ? (
         <Pressable onPress={() => router.back()} style={styles.back} hitSlop={12}>
-          <Text style={{ fontSize: 24, color: colors.primary }}>←</Text>
+          <Icon.back size={24} color={colors.primary} />
         </Pressable>
       ) : (
         <View style={styles.back} />

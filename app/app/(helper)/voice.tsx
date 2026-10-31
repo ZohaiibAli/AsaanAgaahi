@@ -5,6 +5,7 @@ import { Pressable, ScrollView, Text, View } from "react-native";
 import { listScenarios, pairCreate, Scenario, uploadVoice } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
+import { Icon } from "../../src/components/Icon";
 import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ScreenHeader } from "../../src/components/ScreenHeader";
 import { pickLang, useI18n } from "../../src/i18n";
@@ -99,7 +100,11 @@ export default function VoiceHint() {
       </Card>
 
       <View style={{ alignItems: "center", marginVertical: spacing.xl }}>
-        <Text style={{ fontSize: 64 }}>{recorderState.isRecording ? "🔴" : "🎙️"}</Text>
+        {recorderState.isRecording ? (
+          <Icon.recordDot size={64} color={colors.warning} />
+        ) : (
+          <Icon.mic size={64} color={colors.primary} />
+        )}
         {!recorderState.isRecording ? (
           <Button label={t("record")} onPress={onRecord} />
         ) : (
@@ -109,14 +114,15 @@ export default function VoiceHint() {
 
       {recordedUri && (
         <Card style={{ alignItems: "center" }}>
-          <Button label={`▶️ ${t("play")}`} variant="outline" onPress={() => player.play()} />
+          <Button label={t("play")} icon={<Icon.playCircle size={20} color={colors.primary} />} variant="outline" onPress={() => player.play()} />
           <Button label={t("upload")} onPress={onUpload} loading={uploading} />
         </Card>
       )}
 
       {done && (
-        <Card style={{ borderColor: colors.success, borderWidth: 2 }}>
-          <Text style={{ color: colors.success, fontWeight: "700" }}>✅ {t("upload")}</Text>
+        <Card style={{ borderColor: colors.success, borderWidth: 2, flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <Icon.checkmarkCircle size={20} color={colors.success} />
+          <Text style={{ color: colors.success, fontWeight: "700" }}>{t("upload")}</Text>
         </Card>
       )}
       {error ? <Text style={{ color: colors.warning, marginBottom: spacing.sm }}>{error}</Text> : null}

@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useLearnerRealtime } from "../hooks/useLearnerRealtime";
 import { useI18n } from "../i18n";
 import { spacing, typography, useTheme } from "../theme";
+import { Icon } from "./Icon";
 
 export function NudgeBanner() {
   const { colors } = useTheme();
@@ -18,18 +19,19 @@ export function NudgeBanner() {
 
   return (
     <View style={[styles.banner, { backgroundColor: colors.primary }]}>
-      <Text style={{ fontSize: 22 }}>💬</Text>
+      <Icon.sms size={22} color={colors.onPrimary} />
       <View style={{ flex: 1, marginHorizontal: spacing.sm }}>
         <Text style={[typography.bodyBold, { color: colors.onPrimary }]}>{t("message_from_family")}</Text>
         {nudge.message ? <Text style={{ color: colors.onPrimary, marginTop: 2 }}>{nudge.message}</Text> : null}
         {nudge.voice_id ? (
-          <Pressable onPress={() => player.play()} style={{ marginTop: 6 }}>
-            <Text style={{ color: colors.onPrimary, fontWeight: "700" }}>▶️ {t("play")}</Text>
+          <Pressable onPress={() => player.play()} style={{ flexDirection: "row", alignItems: "center", marginTop: 6 }}>
+            <Icon.playCircle size={18} color={colors.onPrimary} />
+            <Text style={{ color: colors.onPrimary, fontWeight: "700", marginLeft: 4 }}>{t("play")}</Text>
           </Pressable>
         ) : null}
       </View>
       <Pressable onPress={dismissNudge} hitSlop={10}>
-        <Text style={{ color: colors.onPrimary, fontSize: 20 }}>✕</Text>
+        <Icon.close size={20} color={colors.onPrimary} />
       </Pressable>
     </View>
   );
