@@ -1,6 +1,7 @@
+import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
-import { Text, View } from "react-native";
+import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { explain } from "../../src/api";
 import { Button } from "../../src/components/Button";
 import { Card } from "../../src/components/Card";
@@ -10,7 +11,10 @@ import { ScreenContainer } from "../../src/components/ScreenContainer";
 import { ScreenHeader } from "../../src/components/ScreenHeader";
 import { TextField } from "../../src/components/TextField";
 import { useI18n } from "../../src/i18n";
+import { scanScreenshotText } from "../../src/ocrSim";
 import { spacing, typography, useTheme } from "../../src/theme";
+
+type Tab = "type" | "screenshot";
 
 const VERDICT_KEY: Record<string, "verdict_likely_scam" | "verdict_looks_safe" | "verdict_not_sure"> = {
   likely_scam: "verdict_likely_scam",
@@ -25,10 +29,43 @@ export default function Paste() {
   const { t } = useI18n();
   const router = useRouter();
 
-  const [text, setText] = useState("");
+  const [tab, setTab] = useState<Tab>("type");
+
+  // "Type it" tab
+  const [typedText, setTypedText] = useState("");
+
+  // "From screenshot" tab — fully hands-off: no text box, system reads it and that's it.
+  const [screenshotUri, setScreenshotUri] = useState<string | null>(null);
+  const [scanning, setScanning] = useState(false);
+  const [extractedText, setExtractedText] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Awaited<ReturnType<typeof explain>> | null>(null);
   const [error, setError] = useState("");
+
+  const text = tab === "type" ? typedText : extractedText;
+
+  const onPickScreenshot = async () => {
+    setError("");
+    const perm = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!perm.granted) {
+      setError("Screenshot access ki ijazat nahi mili.");
+      return;
+    }
+    const picked = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ["images"], quality: 0.7 });
+    if (picked.canceled || !picked.assets?.[0]) return;
+
+    setScreenshotUri(picked.assets[0].uri);
+    setExtractedText("");
+    setResult(null);
+    setScanning(true);
+    try {
+      const read = await scanScreenshotText();
+      setExtractedText(read);
+    } finally {
+      setScanning(false);
+    }
+  };
 
   const onCheck = async () => {
     setLoading(true);
@@ -47,15 +84,79 @@ export default function Paste() {
   return (
     <ScreenContainer>
       <ScreenHeader title={t("paste_title")} />
-      <TextField
-        value={text}
-        onChangeText={setText}
-        placeholder={t("paste_placeholder")}
-        multiline
-        numberOfLines={5}
-        style={{ minHeight: 120, textAlignVertical: "top" }}
-      />
-      <Button label={t("check_message")} onPress={onCheck} loading={loading} disabled={text.trim().length < 5} />
+
+      <View style={[styles.tabs, { backgroundColor: colors.surfaceAlt, borderColor: colors.border }]}>
+        {(["type", "screenshot"] as Tab[]).map((key) => {
+          const active = tab === key;
+          return (
+            <Pressable
+              key={key}
+              onPress={() => setTab(key)}
+              accessibilityRole="tab"
+              accessibilityState={{ selected: active }}
+              style={[styles.tab, active && { backgroundColor: colors.primary }]}
+            >
+              <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                {key === "type" ? (
+                  <Icon.pencil size={16} color={active ? colors.onPrimary : colors.text} />
+                ) : (
+                  <Icon.camera size={16} color={active ? colors.onPrimary : colors.text} />
+                )}
+                <Text style={[typography.bodyBold, { color: active ? colors.onPrimary : colors.text }]}>
+                  {t(key === "type" ? "tab_type_message" : "tab_screenshot_message")}
+                </Text>
+              </View>
+            </Pressable>
+          );
+        })}
+      </View>
+
+      {tab === "type" ? (
+        <TextField
+          value={typedText}
+          onChangeText={setTypedText}
+          placeholder={t("paste_placeholder")}
+          multiline
+          numberOfLines={5}
+          style={{ minHeight: 120, textAlignVertical: "top" }}
+        />
+      ) : !screenshotUri ? (
+        <Pressable onPress={onPickScreenshot}>
+          <Card style={{ alignItems: "center", paddingVertical: spacing.xl, borderStyle: "dashed", borderWidth: 2, borderColor: colors.primary }}>
+            <Icon.camera size={40} color={colors.primary} />
+            <Text style={[typography.bodyBold, { color: colors.primary, marginTop: spacing.sm }]}>{t("pick_screenshot")}</Text>
+            <Text style={[typography.caption, { color: colors.textMuted, textAlign: "center", marginTop: spacing.sm }]}>
+              {t("paste_pick_screenshot_hint")}
+            </Text>
+          </Card>
+        </Pressable>
+      ) : (
+        <Card>
+          <Image source={{ uri: screenshotUri }} style={{ width: "100%", height: 180, borderRadius: 16 }} resizeMode="cover" />
+          {scanning ? (
+            <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.md }}>
+              <ActivityIndicator color={colors.primary} />
+              <Text style={[typography.body, { color: colors.textMuted, marginLeft: spacing.sm }]}>{t("scanning_screenshot")}</Text>
+            </View>
+          ) : (
+            <>
+              <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.md, gap: 6 }}>
+                <Icon.checkmarkCircle size={16} color={colors.success} />
+                <Text style={[typography.caption, { color: colors.success }]}>{t("scan_done")}</Text>
+              </View>
+              <View style={{ backgroundColor: colors.surfaceAlt, borderRadius: 16, padding: spacing.md, marginTop: spacing.sm }}>
+                <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 4 }]}>{t("extracted_label")}</Text>
+                <Text style={[typography.body, { color: colors.text }]}>{extractedText}</Text>
+              </View>
+              <Pressable onPress={onPickScreenshot} style={{ marginTop: spacing.sm, alignItems: "center" }}>
+                <Text style={{ color: colors.primary, fontWeight: "700" }}>{t("pick_another")}</Text>
+              </Pressable>
+            </>
+          )}
+        </Card>
+      )}
+
+      <Button label={t("check_message")} onPress={onCheck} loading={loading} disabled={text.trim().length < 5 || scanning} />
       {error ? <Text style={{ color: colors.warning, marginTop: spacing.sm }}>{error}</Text> : null}
 
       {result && VerdictIcon && (
@@ -100,3 +201,8 @@ export default function Paste() {
     </ScreenContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  tabs: { flexDirection: "row", borderRadius: 999, borderWidth: 1, padding: 4, marginBottom: 16 },
+  tab: { flex: 1, paddingVertical: 10, borderRadius: 999, alignItems: "center" },
+});

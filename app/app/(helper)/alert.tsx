@@ -107,7 +107,7 @@ export default function Alert() {
                   <Icon.camera size={16} color={active ? colors.onPrimary : colors.text} />
                 )}
                 <Text style={[typography.bodyBold, { color: active ? colors.onPrimary : colors.text }]}>
-                  {t(key === "type" ? "alert_tab_type" : "alert_tab_screenshot")}
+                  {t(key === "type" ? "tab_type_message" : "tab_screenshot_message")}
                 </Text>
               </View>
             </Pressable>
@@ -128,7 +128,7 @@ export default function Alert() {
         <Pressable onPress={onPickScreenshot}>
           <Card style={{ alignItems: "center", paddingVertical: spacing.xl, borderStyle: "dashed", borderWidth: 2, borderColor: colors.primary }}>
             <Icon.camera size={40} color={colors.primary} />
-            <Text style={[typography.bodyBold, { color: colors.primary, marginTop: spacing.sm }]}>{t("alert_pick_screenshot")}</Text>
+            <Text style={[typography.bodyBold, { color: colors.primary, marginTop: spacing.sm }]}>{t("pick_screenshot")}</Text>
             <Text style={[typography.caption, { color: colors.textMuted, textAlign: "center", marginTop: spacing.sm }]}>
               {t("alert_pick_screenshot_hint")}
             </Text>
@@ -149,11 +149,11 @@ export default function Alert() {
                 <Text style={[typography.caption, { color: colors.success }]}>{t("scan_done")}</Text>
               </View>
               <View style={{ backgroundColor: colors.surfaceAlt, borderRadius: 16, padding: spacing.md, marginTop: spacing.sm }}>
-                <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 4 }]}>{t("alert_extracted_label")}</Text>
+                <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 4 }]}>{t("extracted_label")}</Text>
                 <Text style={[typography.body, { color: colors.text }]}>{extractedText}</Text>
               </View>
               <Pressable onPress={onPickScreenshot} style={{ marginTop: spacing.sm, alignItems: "center" }}>
-                <Text style={{ color: colors.primary, fontWeight: "700" }}>{t("alert_pick_another")}</Text>
+                <Text style={{ color: colors.primary, fontWeight: "700" }}>{t("pick_another")}</Text>
               </Pressable>
             </>
           )}
