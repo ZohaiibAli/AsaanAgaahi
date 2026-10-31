@@ -8,10 +8,6 @@
  */
 const SAMPLE_SCAM_TEXTS = [
   "UBL Alert: Aapke account mein Rs. 45,000 ka suspicious transaction hua hai. Cancel karne ke liye apna card number aur CVV is number par bhejein: 0345-1122334.",
-  "SasteMobile.pk: Mubarak ho! Aap ne free Redmi Note 13 jeeta hai. Delivery charges Rs. 350 is account mein bhejein: 0312-9988771. Offer sirf aaj ke liye hai!",
-  // Website/ad-style screenshot — a scam shopping/offer page, not an SMS.
-  "MegaSaleToday.shop — Sirf 2 ghante baaki! iPhone 15 sirf Rs. 4,999 mein order karein. Stock khatam hone se pehle 'Order Now' par click karein aur apni delivery details aur advance payment screen par darj karein.",
-  "Facebook Ad: Pakistan Govt Relief Program — har ghar ko Rs. 50,000 mil raha hai. Apply karne ke liye apna CNIC number aur mobile wallet PIN is form mein darj karein. Limited slots available!",
 ];
 
 export async function scanScreenshotText(): Promise<string> {
