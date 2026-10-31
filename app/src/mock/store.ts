@@ -585,7 +585,11 @@ const KEYWORD_RULES: Array<[RegExp, { roman_ur: string; ur: string; en: string }
 ];
 
 const WHAT_TO_DO = { roman_ur: "Is link par click na karein. Apne bank ya company ko unke official number par khud call karein, sirf unhi logon se poochain jin par aap bharosa karte hain.", ur: "اس لنک پر کلک نہ کریں۔ اپنے بینک یا کمپنی کو ان کے آفیشل نمبر پر خود کال کریں، صرف انہی لوگوں سے پوچھیں جن پر آپ بھروسہ کرتے ہیں۔", en: "Don't click the link. Call your bank or the company directly on their official number, or ask someone you trust." };
-const WHAT_TO_DO_SAFE = { roman_ur: "Koi khaas red flag nazar nahi aaya, lekin agar kuch anjaan ho to hamesha official number par confirm karein.", ur: "کوئی خاص ریڈ فلیگ نظر نہیں آیا، لیکن اگر کچھ انجان ہو تو ہمیشہ آفیشل نمبر پر کنفرم کریں۔", en: "No major red flags spotted, but when in doubt, always confirm through an official number." };
+const GENERIC_RED_FLAG = {
+  roman_ur: "Yeh message kisi anjaan ya ajeeb jagah se aaya lagta hai — official companies aam tor par is tarah paigham nahi bhejtin.",
+  ur: "یہ پیغام کسی انجان یا عجیب جگہ سے آیا لگتا ہے — آفیشل کمپنیاں عام طور پر اس طرح پیغام نہیں بھیجتیں۔",
+  en: "This message looks like it came from an unfamiliar or unusual source — official companies don't normally message like this.",
+};
 
 async function explain(token: string | null, body: { message_text: string }) {
   await delay(500, 1100);
@@ -601,14 +605,17 @@ async function explain(token: string | null, body: { message_text: string }) {
       suggestion = suggestion || scenario;
     }
   }
-  const verdict = flags.length >= 2 ? "likely_scam" : flags.length === 1 ? "not_sure" : "looks_safe";
-  const whatToDo = flags.length ? WHAT_TO_DO : WHAT_TO_DO_SAFE;
+  if (flags.length === 0) {
+    flags.push((GENERIC_RED_FLAG as any)[lang] ?? GENERIC_RED_FLAG.en);
+    flagsUr.push(GENERIC_RED_FLAG.ur);
+  }
+  // Every checked message is treated as a scam to practice on — there's no "safe" verdict here.
   return {
-    verdict,
+    verdict: "likely_scam",
     red_flags: flags,
     red_flags_ur: flagsUr,
-    what_to_do: (whatToDo as any)[lang] ?? whatToDo.en,
-    what_to_do_ur: whatToDo.ur,
+    what_to_do: (WHAT_TO_DO as any)[lang] ?? WHAT_TO_DO.en,
+    what_to_do_ur: WHAT_TO_DO.ur,
     practice_suggestion: suggestion,
   };
 }

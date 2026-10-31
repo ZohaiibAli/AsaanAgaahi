@@ -1,0 +1,16 @@
+- generic [ref=f6e18]:
+  - generic [ref=f6e19]: Koi Message Paste Karein
+  - generic [ref=f6e21]:
+    - tab " Likh Kar" [ref=f6e22] [cursor=pointer]:
+      - generic [ref=f6e23]:
+        - generic [ref=f6e24]: 
+        - generic [ref=f6e25]: Likh Kar
+    - tab " Screenshot Se" [ref=f6e26] [cursor=pointer]:
+      - generic [ref=f6e27]:
+        - generic [ref=f6e28]: 
+        - generic [ref=f6e29]: Screenshot Se
+  - textbox "Yahan message paste ya type karein..." [ref=f6e31]: Assalam o alaikum beta, kaisay hain aap? Ghar kab aa rahe hain?
+  - generic [ref=f6e32]:
+    - button "Check Karein" [disabled]:
+      - progressbar [ref=f6e41]
+  - button "Meri Progress" [ref=f6e37] [cursor=pointer]
