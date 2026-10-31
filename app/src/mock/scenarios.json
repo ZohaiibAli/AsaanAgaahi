@@ -1,0 +1,504 @@
+[
+  {
+    "id": "easypaisa_prize",
+    "title": { "roman_ur": "Easypaisa Inaam", "ur": "ایزی پیسہ انعام", "en": "Easypaisa Prize" },
+    "channel": "sms",
+    "sender": "Easypaisa",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "Mubarak ho! Aap ne Easypaisa lucky draw mein Rs. 500,000 jeet liye hain.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Kisi inaam ke liye apply hi nahi kiya tha, phir bhi itni badi raqam? Yeh asal zindagi mein bohat kam hota hai.",
+          "ur": "کسی انعام کے لیے اپلائی ہی نہیں کیا تھا، پھر بھی اتنی بڑی رقم؟ یہ اصل زندگی میں بہت کم ہوتا ہے۔",
+          "en": "You never entered a draw, yet you 'won' a huge amount — real prizes almost never work this way."
+        }
+      },
+      {
+        "text": "Claim karne ke liye apna account number aur OTP is number par bhejein: 0300-1234567.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Koi bhi asli company aapka OTP kabhi nahi mangti. OTP maangna sab se bada khatre ka nishan hai.",
+          "ur": "کوئی بھی اصلی کمپنی آپ کا او ٹی پی کبھی نہیں مانگتی۔ او ٹی پی مانگنا سب سے بڑا خطرے کا نشان ہے۔",
+          "en": "No real company ever asks for your OTP. Asking for an OTP is the biggest warning sign of all."
+        }
+      },
+      {
+        "text": "Offer sirf 2 ghante ke liye hai!",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Jaldi karwana taake aap sochne ka waqt na lein — yeh dabao dalne ka tareeqa hai.",
+          "ur": "جلدی کروانا تاکہ آپ سوچنے کا وقت نہ لیں — یہ دباؤ ڈالنے کا طریقہ ہے۔",
+          "en": "Rushing you so you don't have time to think is a classic pressure tactic."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Zara sochein — kya aap ne kabhi is draw mein hissa liya tha?",
+        "ur": "ذرا سوچیں — کیا آپ نے کبھی اس ڈرا میں حصہ لیا تھا؟",
+        "en": "Think — did you ever actually enter this draw?"
+      },
+      {
+        "roman_ur": "Message mein kuch aisa mangwaya ja raha hai jo kisi ko bhi nahi dena chahiye...",
+        "ur": "میسج میں کچھ ایسا منگوایا جا رہا ہے جو کسی کو بھی نہیں دینا چاہیے...",
+        "en": "The message is asking for something you should never share with anyone..."
+      },
+      {
+        "roman_ur": "Dusra hissa parhein: OTP mangna hi is message ko scam banata hai.",
+        "ur": "دوسرا حصہ پڑھیں: او ٹی پی مانگنا ہی اس میسج کو اسکیم بناتا ہے۔",
+        "en": "Look at the second part again — asking for your OTP is exactly what makes this a scam."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Agar yeh OTP de dete to scammer aapke Easypaisa account se saara balance nikaal sakta tha. Yahan sab mehfooz hai, phir koshish karein!",
+      "ur": "اگر یہ او ٹی پی دے دیتے تو اسکیمر آپ کے ایزی پیسہ اکاؤنٹ سے سارا بیلنس نکال سکتا تھا۔ یہاں سب محفوظ ہے، پھر کوشش کریں!",
+      "en": "Sharing that OTP would have let the scammer drain your entire Easypaisa balance. Here everything is safe — try again!"
+    },
+    "red_flags": [
+      "unexpected prize you never entered for",
+      "asks for OTP or account number",
+      "urgent time pressure",
+      "sent from a personal mobile number, not an official short code"
+    ]
+  },
+  {
+    "id": "account_blocked",
+    "title": { "roman_ur": "Account Band Ho Jayega", "ur": "اکاؤنٹ بند ہو جائے گا", "en": "Your Account Will Be Blocked" },
+    "channel": "sms",
+    "sender": "JazzCash",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "INTEKHABI ITLA: Aap ka JazzCash account 24 ghante mein block ho jayega.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Ghabrahat paida karne ke liye dhamki di jati hai taake aap jaldi mein soch samajh kar faisla na karein.",
+          "ur": "گھبراہٹ پیدا کرنے کے لیے دھمکی دی جاتی ہے تاکہ آپ جلدی میں سوچ سمجھ کر فیصلہ نہ کریں۔",
+          "en": "A scary threat is used to create panic so you act fast without thinking it through."
+        }
+      },
+      {
+        "text": "Abhi verify karein: http://jazzcash-verify.info/confirm",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Yeh asal JazzCash ki website nahi hai. Asli company ka naam '.info' ya ajeeb link mein nahi hota.",
+          "ur": "یہ اصل جاز کیش کی ویب سائٹ نہیں ہے۔ اصلی کمپنی کا نام '.info' یا عجیب لنک میں نہیں ہوتا۔",
+          "en": "This is not JazzCash's real website. Official companies don't use odd '.info' addresses like this."
+        }
+      },
+      {
+        "text": "Apna PIN aur CNIC number dalein.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "PIN kabhi kisi link par nahi dalna chahiye — yeh seedha aapke paison tak rasai de deta hai.",
+          "ur": "پن کبھی کسی لنک پر نہیں ڈالنا چاہیے — یہ سیدھا آپ کے پیسوں تک رسائی دے دیتا ہے۔",
+          "en": "Never type your PIN into a link — that hands over direct access to your money."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Kya aap ne JazzCash app khud khol kar check kiya ke account waqai khatre mein hai?",
+        "ur": "کیا آپ نے جاز کیش ایپ خود کھول کر چیک کیا کہ اکاؤنٹ واقعی خطرے میں ہے؟",
+        "en": "Have you checked directly in the JazzCash app whether your account is really at risk?"
+      },
+      {
+        "roman_ur": "Link ka address zara ghor se parhein — kya yeh jazzcash.com.pk jaisa lagta hai?",
+        "ur": "لنک کا ایڈریس ذرا غور سے پڑھیں — کیا یہ jazzcash.com.pk جیسا لگتا ہے؟",
+        "en": "Look closely at the link address — does it actually look like jazzcash.com.pk?"
+      },
+      {
+        "roman_ur": "Akhri hissa: PIN aur CNIC mangna is message ko scam saabit karta hai.",
+        "ur": "آخری حصہ: پن اور شناختی کارڈ نمبر مانگنا اس میسج کو اسکیم ثابت کرتا ہے۔",
+        "en": "The last part — asking for your PIN and CNIC — is what proves this message is a scam."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Agar PIN dal dete to chand minutes mein account khali ho sakta tha. Yahan kuch nahi hua, dobara koshish karein!",
+      "ur": "اگر پن ڈال دیتے تو چند منٹوں میں اکاؤنٹ خالی ہو سکتا تھا۔ یہاں کچھ نہیں ہوا، دوبارہ کوشش کریں!",
+      "en": "Entering your PIN could have emptied the account within minutes. Nothing happened here — try again!"
+    },
+    "red_flags": [
+      "urgent threat about blocking the account",
+      "suspicious non-official link",
+      "asks for PIN and CNIC",
+      "creates fear to rush a decision"
+    ]
+  },
+  {
+    "id": "bisp_payment",
+    "title": { "roman_ur": "Jhooti BISP Payment", "ur": "جھوٹی بی آئی ایس پی ادائیگی", "en": "Fake BISP Payment" },
+    "channel": "sms",
+    "sender": "BISP",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "BISP Kafaalat: Aap 25,000 rupay ke liye select ho gaye hain.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "BISP kabhi SMS link se payment claim nahi karwata, sirf registered center ya NSER survey se.",
+          "ur": "بی آئی ایس پی کبھی ایس ایم ایس لنک سے پیمنٹ کلیم نہیں کرواتا، صرف رجسٹرڈ سینٹر یا سروے سے۔",
+          "en": "BISP never asks you to claim money through an SMS link — only through registered centres or the official survey."
+        }
+      },
+      {
+        "text": "Apna register number is link par confirm karein: bisp-payment.xyz/claim",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "'.xyz' jaisa ajeeb link kisi bhi sarkari idaray ka nahi hota.",
+          "ur": "'.xyz' جیسا عجیب لنک کسی بھی سرکاری ادارے کا نہیں ہوتا۔",
+          "en": "A strange '.xyz' address is never used by a real government department."
+        }
+      },
+      {
+        "text": "Jaldi karein warna payment cancel ho jayegi.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Jaldi karwana taake aap theek se check na karein — yeh dabao ka tareeqa hai.",
+          "ur": "جلدی کروانا تاکہ آپ ٹھیک سے چیک نہ کریں — یہ دباؤ کا طریقہ ہے۔",
+          "en": "Pushing for urgency so you skip checking carefully is a pressure tactic."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "BISP payment kahan se milti hai — SMS link se ya registered center se?",
+        "ur": "بی آئی ایس پی پیمنٹ کہاں سے ملتی ہے — ایس ایم ایس لنک سے یا رجسٹرڈ سینٹر سے؟",
+        "en": "Where does a real BISP payment actually come from — an SMS link, or a registered centre?"
+      },
+      {
+        "roman_ur": "Link ka naam ghor se parhein, kya yeh sarkari website jaisa lagta hai?",
+        "ur": "لنک کا نام غور سے پڑھیں، کیا یہ سرکاری ویب سائٹ جیسا لگتا ہے؟",
+        "en": "Read the link name carefully — does it actually look like a government website?"
+      },
+      {
+        "roman_ur": "'.xyz' link aur jaldi ka dabao — dono mil kar scam ka saaf sabot hain.",
+        "ur": "'.xyz' لنک اور جلدی کا دباؤ — دونوں مل کر اسکیم کا صاف ثبوت ہیں۔",
+        "en": "The odd '.xyz' link plus the rush to act together are clear proof of a scam."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Is link par apni details dalne se aapka data chori ho sakta tha aur account se paisay bhi nikal sakte thay. Yahan sab theek hai, dobara koshish karein!",
+      "ur": "اس لنک پر اپنی تفصیلات ڈالنے سے آپ کا ڈیٹا چوری ہو سکتا تھا اور اکاؤنٹ سے پیسے بھی نکل سکتے تھے۔ یہاں سب ٹھیک ہے، دوبارہ کوشش کریں!",
+      "en": "Entering your details on that link could have stolen your data and drained your account. Everything here is safe — try again!"
+    },
+    "red_flags": [
+      "claims a government payment via SMS link",
+      "suspicious '.xyz' domain",
+      "urgency to act before the offer 'cancels'",
+      "asks to confirm personal register number on a link"
+    ]
+  },
+  {
+    "id": "fbr_tax_notice",
+    "title": { "roman_ur": "Jhooti FBR Tax Notice", "ur": "جھوٹا ایف بی آر ٹیکس نوٹس", "en": "Fake FBR Tax Notice" },
+    "channel": "sms",
+    "sender": "FBR",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "FBR Notice: Aap par 85,000 rupay ka tax baqaya hai.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "FBR apni official notices SMS link ke zariye nahi bhejta, IRIS portal ya dak se bhejta hai.",
+          "ur": "ایف بی آر اپنی آفیشل نوٹسز ایس ایم ایس لنک کے ذریعے نہیں بھیجتا، آئی آر آئی ایس پورٹل یا ڈاک سے بھیجتا ہے۔",
+          "en": "FBR does not send official notices through an SMS link — it uses the IRIS portal or postal mail."
+        }
+      },
+      {
+        "text": "24 ghanton mein pay na kiya to aap ka CNIC block ho jayega.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "CNIC block karne ki dhamki dar paida karne ke liye hai, yeh is tarah kaam nahi karta.",
+          "ur": "شناختی کارڈ بلاک کرنے کی دھمکی ڈر پیدا کرنے کے لیے ہے، یہ اس طرح کام نہیں کرتا۔",
+          "en": "The threat to 'block your CNIC' is designed to scare you — it doesn't actually work this way."
+        }
+      },
+      {
+        "text": "Payment link: fbr-tax-pay.com/pay. Turant ada karein.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Asli FBR payment sirf fbr.gov.pk ya bank challan se hoti hai, aise third-party link se nahi.",
+          "ur": "اصلی ایف بی آر پیمنٹ صرف fbr.gov.pk یا بینک چالان سے ہوتی ہے، ایسے تھرڈ پارٹی لنک سے نہیں۔",
+          "en": "Real FBR payments only go through fbr.gov.pk or a bank challan — never a random third-party link."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "FBR aam tor par notice kis tareeqe se bhejta hai — SMS link ya official portal?",
+        "ur": "ایف بی آر عام طور پر نوٹس کس طریقے سے بھیجتا ہے — ایس ایم ایس لنک یا آفیشل پورٹل؟",
+        "en": "How does FBR usually send a real notice — an SMS link, or the official portal?"
+      },
+      {
+        "roman_ur": "CNIC block hone wali dhamki par ghor karein — kya yeh haqeeqi lagti hai?",
+        "ur": "شناختی کارڈ بلاک ہونے والی دھمکی پر غور کریں — کیا یہ حقیقی لگتی ہے؟",
+        "en": "Think about the threat to block your CNIC — does that actually sound real?"
+      },
+      {
+        "roman_ur": "Payment link 'fbr-tax-pay.com' asli fbr.gov.pk se bilkul mukhtalif hai.",
+        "ur": "پیمنٹ لنک 'fbr-tax-pay.com' اصلی fbr.gov.pk سے بالکل مختلف ہے۔",
+        "en": "The payment link 'fbr-tax-pay.com' is completely different from the real fbr.gov.pk."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Is link par payment karne se paisay seedha scammer ke paas chale jaate, FBR ko kuch nahi milta. Yahan mehfooz hain, dobara koshish karein!",
+      "ur": "اس لنک پر پیمنٹ کرنے سے پیسے سیدھا اسکیمر کے پاس چلے جاتے، ایف بی آر کو کچھ نہیں ملتا۔ یہاں محفوظ ہیں، دوبارہ کوشش کریں!",
+      "en": "Paying through that link would have sent your money straight to the scammer, not FBR. You're safe here — try again!"
+    },
+    "red_flags": [
+      "tax notice sent via SMS link instead of IRIS/post",
+      "threat to block your CNIC",
+      "fake payment domain, not fbr.gov.pk",
+      "demands immediate payment"
+    ]
+  },
+  {
+    "id": "otp_caller",
+    "title": { "roman_ur": "OTP Maangne Wali Call", "ur": "او ٹی پی مانگنے والی کال", "en": "The OTP Phone Call" },
+    "channel": "call",
+    "sender": "Unknown Caller (claims to be from your Bank)",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "Assalam o alaikum, main aap ke bank se bol raha hoon, aapke card par ek security check chal raha hai.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Yeh hissa abhi tak normal lagta hai — asli bank bhi kabhi kabhi call karte hain.",
+          "ur": "یہ حصہ ابھی تک نارمل لگتا ہے — اصلی بینک بھی کبھی کبھی کال کرتے ہیں۔",
+          "en": "This part still sounds normal — real banks do sometimes call customers."
+        }
+      },
+      {
+        "text": "Aap ke phone par ek 6-digit code aaya hoga, wo mujhe bata dein taake hum verify kar sakein.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Koi bhi bank employee kabhi OTP nahi maangta, chahe wo kitna bhi official lage.",
+          "ur": "کوئی بھی بینک ایمپلائی کبھی او ٹی پی نہیں مانگتا، چاہے وہ کتنا بھی آفیشل لگے۔",
+          "en": "No real bank employee ever asks for your OTP, no matter how official they sound."
+        }
+      },
+      {
+        "text": "Agar aap ne code nahi diya to aapka account aaj hi band ho jayega.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Dhamki de kar jaldi faisla karwana scam callers ka aam tareeqa hai.",
+          "ur": "دھمکی دے کر جلدی فیصلہ کروانا اسکیم کالرز کا عام طریقہ ہے۔",
+          "en": "Threatening you to force a quick decision is a very common scam-caller tactic."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Call shuru mein normal lag sakti hai — aage sunte rahein, koi cheez mangi jayegi.",
+        "ur": "کال شروع میں نارمل لگ سکتی ہے — آگے سنتے رہیں، کوئی چیز مانگی جائے گی۔",
+        "en": "The call may sound normal at first — keep listening, something will be asked for."
+      },
+      {
+        "roman_ur": "Caller ek aisi cheez maang raha hai jo sirf aapke paas honi chahiye.",
+        "ur": "کالر ایک ایسی چیز مانگ رہا ہے جو صرف آپ کے پاس ہونی چاہیے۔",
+        "en": "The caller is asking for something that should only ever be known to you."
+      },
+      {
+        "roman_ur": "Doosra jumla: OTP maangna hi is call ko scam banata hai, chahe bank ka naam le.",
+        "ur": "دوسرا جملہ: او ٹی پی مانگنا ہی اس کال کو اسکیم بناتا ہے، چاہے بینک کا نام لے۔",
+        "en": "The second line — asking for your OTP — is what makes this a scam call, even with a bank's name attached."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Agar OTP bata dete to scammer turant aapke card se shopping ya transfer kar sakta tha. Yahan kuch nahi hua, dobara koshish karein!",
+      "ur": "اگر او ٹی پی بتا دیتے تو اسکیمر فوراً آپ کے کارڈ سے شاپنگ یا ٹرانسفر کر سکتا تھا۔ یہاں کچھ نہیں ہوا، دوبارہ کوشش کریں!",
+      "en": "Sharing that OTP would have let the scammer shop or transfer money with your card right away. Nothing happened here — try again!"
+    },
+    "red_flags": [
+      "unknown caller claiming to be the bank",
+      "asks for the OTP over the phone",
+      "threatens to close the account",
+      "creates urgency to stop you from hanging up and verifying"
+    ]
+  },
+  {
+    "id": "fake_delivery",
+    "title": { "roman_ur": "Jhooti Courier Fee", "ur": "جھوٹی کورئیر فیس", "en": "Fake Courier Fee" },
+    "channel": "whatsapp",
+    "sender": "TCS Courier",
+    "is_scam": true,
+    "segments": [
+      {
+        "text": "Aap ka parcel customs mein phasa hua hai.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Agar aap ne koi parcel order hi nahi kiya, to yeh baat shuru se hi ghalat hai.",
+          "ur": "اگر آپ نے کوئی پارسل آرڈر ہی نہیں کیا، تو یہ بات شروع سے ہی غلط ہے۔",
+          "en": "If you never ordered a parcel, this claim is false from the very first line."
+        }
+      },
+      {
+        "text": "350 rupay clearance fee ada karein is link par: tcs-clearance.net/pay",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Asli TCS payment website tcs.com.pk hoti hai, yeh link bilkul alag hai.",
+          "ur": "اصلی ٹی سی ایس پیمنٹ ویب سائٹ tcs.com.pk ہوتی ہے، یہ لنک بالکل الگ ہے۔",
+          "en": "The real TCS website is tcs.com.pk — this link is completely different."
+        }
+      },
+      {
+        "text": "Warna parcel wapis bhej diya jayega.",
+        "is_red_flag": true,
+        "why": {
+          "roman_ur": "Chota sa amount aur jaldi ka dabao mil kar bohat logon ko bina sochay pay karwa dete hain.",
+          "ur": "چھوٹا سا اماؤنٹ اور جلدی کا دباؤ مل کر بہت لوگوں کو بغیر سوچے پے کروا دیتے ہیں۔",
+          "en": "A small amount plus urgency together trick many people into paying without thinking twice."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Sab se pehle socein — kya aap ne koi online parcel order kiya tha?",
+        "ur": "سب سے پہلے سوچیں — کیا آپ نے کوئی آن لائن پارسل آرڈر کیا تھا؟",
+        "en": "First, think — did you actually order a parcel online?"
+      },
+      {
+        "roman_ur": "Link ka naam ghor se dekhein, kya yeh TCS ki asli website jaisa lagta hai?",
+        "ur": "لنک کا نام غور سے دیکھیں، کیا یہ ٹی سی ایس کی اصلی ویب سائٹ جیسا لگتا ہے؟",
+        "en": "Look closely at the link — does it actually resemble TCS's real website?"
+      },
+      {
+        "roman_ur": "Chota fee amount bhi ek chaal hai — asal maqsad aapki card details churana hai.",
+        "ur": "چھوٹا فیس اماؤنٹ بھی ایک چال ہے — اصل مقصد آپ کی کارڈ تفصیلات چرانا ہے۔",
+        "en": "Even the small fee is a trick — the real goal is to steal your card details when you pay."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Yeh link kholne se aapki card details chori ho sakti thin, chahe fee chhoti ho. Yahan mehfooz hain, dobara koshish karein!",
+      "ur": "یہ لنک کھولنے سے آپ کی کارڈ تفصیلات چوری ہو سکتی تھیں، چاہے فیس چھوٹی ہو۔ یہاں محفوظ ہیں، دوبارہ کوشش کریں!",
+      "en": "Opening that link could have stolen your card details, even for a small fee. You're safe here — try again!"
+    },
+    "red_flags": [
+      "claims a parcel you never ordered",
+      "fake courier domain, not the official company website",
+      "small 'clearance fee' to seem believable",
+      "threat of losing the parcel to rush payment"
+    ]
+  },
+  {
+    "id": "legit_bank_alert",
+    "title": { "roman_ur": "Asli Bank Alert", "ur": "اصلی بینک الرٹ", "en": "Real Bank Alert" },
+    "channel": "sms",
+    "sender": "Meezan Bank",
+    "is_scam": false,
+    "segments": [
+      {
+        "text": "Aap ke account XXXX1234 mein Rs. 15,000 jama ho gaye hain.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Yeh sirf ek maloomati paigham hai, kuch bhi mangwaya nahi ja raha.",
+          "ur": "یہ صرف ایک معلوماتی پیغام ہے، کچھ بھی منگوایا نہیں جا رہا۔",
+          "en": "This is just an informational message — nothing is being asked of you."
+        }
+      },
+      {
+        "text": "Available balance: Rs. 42,350.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Balance batana ek routine alert hai, isme koi link ya pressure nahi hai.",
+          "ur": "بیلنس بتانا ایک روٹین الرٹ ہے، اس میں کوئی لنک یا پریشر نہیں ہے۔",
+          "en": "Stating your balance is a routine alert — no link, no pressure."
+        }
+      },
+      {
+        "text": "Yeh ek automatic alert hai, kisi link par click karne ki zaroorat nahi.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Asli banks aksar yeh saaf likhte hain ke kisi action ki zaroorat nahi — yeh ek acha nishan hai.",
+          "ur": "اصلی بینکس اکثر یہ صاف لکھتے ہیں کہ کسی ایکشن کی ضرورت نہیں — یہ ایک اچھا نشان ہے۔",
+          "en": "Real banks often clearly state that no action is needed — that's actually a good sign."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Is message mein kuch bhi mangwaya ja raha hai? Dhyan se parhein.",
+        "ur": "اس میسج میں کچھ بھی منگوایا جا رہا ہے؟ دھیان سے پڑھیں۔",
+        "en": "Is this message asking you to do or share anything? Read it carefully."
+      },
+      {
+        "roman_ur": "Koi link, koi OTP, koi dabao nazar aa raha hai?",
+        "ur": "کوئی لنک، کوئی او ٹی پی، کوئی دباؤ نظر آ رہا ہے؟",
+        "en": "Do you see any link, any OTP request, or any pressure in this message?"
+      },
+      {
+        "roman_ur": "Yeh sirf aapko batane ke liye hai ke paisay aa gaye — koi action nahi chahiye.",
+        "ur": "یہ صرف آپ کو بتانے کے لیے ہے کہ پیسے آ گئے — کوئی ایکشن نہیں چاہیے۔",
+        "en": "This is purely informing you that money arrived — no action is required from you."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Yeh ek asli, mehfooz paigham tha. Har message scam nahi hota — bas red flags pehchanna seekhein.",
+      "ur": "یہ ایک اصلی، محفوظ پیغام تھا۔ ہر میسج اسکیم نہیں ہوتا — بس ریڈ فلیگز پہچاننا سیکھیں۔",
+      "en": "This was a genuine, safe message. Not every message is a scam — the skill is learning to spot the red flags when they do appear."
+    },
+    "red_flags": []
+  },
+  {
+    "id": "legit_telco_balance",
+    "title": { "roman_ur": "Asli Jazz Balance Alert", "ur": "اصلی جاز بیلنس الرٹ", "en": "Real Jazz Balance Alert" },
+    "channel": "sms",
+    "sender": "Jazz",
+    "is_scam": false,
+    "segments": [
+      {
+        "text": "Aap ka Jazz balance Rs. 120 hai.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Yeh sirf balance ki maloomat hai, koi link ya darkhwast nahi.",
+          "ur": "یہ صرف بیلنس کی معلومات ہے، کوئی لنک یا درخواست نہیں۔",
+          "en": "This is simply balance information — no link, no request attached."
+        }
+      },
+      {
+        "text": "50 free minutes aur 100 SMS available hain.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Yeh ek normal package update hai jo operators aksar bhejte hain.",
+          "ur": "یہ ایک نارمل پیکج اپڈیٹ ہے جو آپریٹرز اکثر بھیجتے ہیں۔",
+          "en": "This is a routine package update that telecom operators send regularly."
+        }
+      },
+      {
+        "text": "Load karne ke liye *786# dial karein.",
+        "is_red_flag": false,
+        "why": {
+          "roman_ur": "Yeh ek official USSD code hai, link nahi — safe hai is tarah dial karna.",
+          "ur": "یہ ایک آفیشل یو ایس ایس ڈی کوڈ ہے، لنک نہیں — محفوظ ہے اس طرح ڈائل کرنا۔",
+          "en": "This is an official USSD dial code, not a link — it's safe to dial it."
+        }
+      }
+    ],
+    "hints": [
+      {
+        "roman_ur": "Kya yeh message koi link khulwa raha hai ya sirf maloomat de raha hai?",
+        "ur": "کیا یہ میسج کوئی لنک کھلوا رہا ہے یا صرف معلومات دے رہا ہے؟",
+        "en": "Is this message opening a link, or just giving you information?"
+      },
+      {
+        "roman_ur": "*786# jaisa code dial karna link kholne se farq hai.",
+        "ur": "*786# جیسا کوڈ ڈائل کرنا لنک کھولنے سے فرق ہے۔",
+        "en": "Dialing a code like *786# is different from clicking an outside link."
+      },
+      {
+        "roman_ur": "Is poore message mein koi OTP, PIN, ya payment nahi manga gaya.",
+        "ur": "اس پورے میسج میں کوئی او ٹی پی، پن، یا پیمنٹ نہیں مانگا گیا۔",
+        "en": "Nowhere in this entire message is an OTP, PIN, or payment requested."
+      }
+    ],
+    "consequence": {
+      "roman_ur": "Yeh ek normal, mehfooz operator message tha — koi khatra nahi tha.",
+      "ur": "یہ ایک نارمل، محفوظ آپریٹر میسج تھا — کوئی خطرہ نہیں تھا۔",
+      "en": "This was a normal, safe message from your telecom operator — there was no danger here."
+    },
+    "red_flags": []
+  }
+]

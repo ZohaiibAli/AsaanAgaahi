@@ -98,7 +98,19 @@ export default function LearnerHome() {
         <Pressable key={s.id} onPress={() => router.push({ pathname: "/(learner)/play", params: { id: s.id } })}>
           <Card>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 26, marginRight: spacing.sm }}>{CHANNEL_ICON[s.channel] ?? "💬"}</Text>
+              <View
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 22,
+                  backgroundColor: colors.surfaceAlt,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: spacing.sm,
+                }}
+              >
+                <Text style={{ fontSize: 22 }}>{CHANNEL_ICON[s.channel] ?? "💬"}</Text>
+              </View>
               <View style={{ flex: 1 }}>
                 <Text style={[typography.bodyBold, { color: colors.text }]}>{pickLang(s.title, lang)}</Text>
                 <Text style={[typography.caption, { color: colors.textMuted }]}>{s.sender}</Text>

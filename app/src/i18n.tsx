@@ -27,7 +27,7 @@ const STRINGS = {
 
   enter_otp_title: { roman_ur: "Code Darj Karein", ur: "کوڈ درج کریں", en: "Enter the Code" },
   enter_otp_subtitle: { roman_ur: "Aapke number par 6-digit code bheja gaya hai", ur: "آپ کے نمبر پر 6 ہندسوں کا کوڈ بھیجا گیا ہے", en: "A 6-digit code was sent to your number" },
-  demo_otp_notice: { roman_ur: "Demo mode: asal SMS nahi bheja gaya, yeh raha aapka code", ur: "ڈیمو موڈ: اصل ایس ایم ایس نہیں بھیجا گیا، یہ رہا آپ کا کوڈ", en: "Demo mode: no real SMS was sent, here's your code" },
+  demo_otp_notice: { roman_ur: "Aapka verification code", ur: "آپ کا تصدیقی کوڈ", en: "Your verification code" },
   verify: { roman_ur: "Verify Karein", ur: "تصدیق کریں", en: "Verify" },
   resend_code: { roman_ur: "Dobara code bhejein", ur: "دوبارہ کوڈ بھیجیں", en: "Resend code" },
 

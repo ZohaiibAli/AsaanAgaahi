@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React, { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from "react-native";
@@ -82,10 +83,15 @@ export default function Dashboard() {
         <LanguageToggle />
       </View>
 
-      <Card style={{ alignItems: "center" }}>
-        <Text style={[typography.caption, { color: colors.textMuted }]}>{t("pairing_create_subtitle")}</Text>
-        <Text style={[typography.title, { color: colors.primary, letterSpacing: 6, marginTop: 6 }]}>{code}</Text>
-      </Card>
+      <LinearGradient
+        colors={colors.buttonGradient}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={{ borderRadius: 24, padding: spacing.md, alignItems: "center", marginVertical: spacing.sm }}
+      >
+        <Text style={[typography.caption, { color: "rgba(255,255,255,0.85)" }]}>{t("pairing_create_subtitle")}</Text>
+        <Text style={[typography.title, { color: colors.onPrimary, letterSpacing: 6, marginTop: 6 }]}>{code}</Text>
+      </LinearGradient>
 
       <Button label={t("assign_scenario")} onPress={() => setShowAssign((v) => !v)} />
       {showAssign && (

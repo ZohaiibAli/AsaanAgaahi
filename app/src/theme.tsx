@@ -7,34 +7,44 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { Appearance } from "react-native";
 import { storageGet, storageSet } from "./storage";
 
+// Palette matched to the "Calmly" reference UI: near-black violet backgrounds, vivid
+// purple→magenta accent gradient, soft lavender-gray body text.
+type Gradient = readonly [string, string];
+
 export const lightColors = {
   background: "#F6F2FC",
   surface: "#FFFFFF",
-  surfaceAlt: "#EDE4FB",
-  primary: "#7C3AED",
-  primaryDark: "#5B21B6",
+  surfaceAlt: "#ECE2FB",
+  primary: "#8B5CF6",
+  primaryDark: "#6D28D9",
+  accent: "#C026D3",
   onPrimary: "#FFFFFF",
-  text: "#241E33",
+  text: "#1E1733",
   textMuted: "#6B6380",
   border: "#E4DBF5",
   success: "#2F9E6E",
   warning: "#D97706",
   danger: "#D97706", // intentionally the same warm amber, not red — "no red error screens"
+  heroGradient: ["#EDE1FC", "#F6F2FC"] as Gradient,
+  buttonGradient: ["#9B6EF3", "#7C3AED"] as Gradient,
 };
 
 export const darkColors = {
-  background: "#140F1F",
-  surface: "#1F1830",
-  surfaceAlt: "#2B2144",
-  primary: "#A78BFA",
+  background: "#120B20",
+  surface: "#1E1733",
+  surfaceAlt: "#2A2049",
+  primary: "#9B6EF3",
   primaryDark: "#C4B5FD",
-  onPrimary: "#1A1127",
-  text: "#F3EEFB",
-  textMuted: "#B8AED1",
-  border: "#342953",
+  accent: "#D946EF",
+  onPrimary: "#FFFFFF",
+  text: "#F5F2FC",
+  textMuted: "#A99FC4",
+  border: "#2F2550",
   success: "#34D399",
   warning: "#FBBF24",
   danger: "#FBBF24",
+  heroGradient: ["#241A42", "#120B20"] as Gradient,
+  buttonGradient: ["#9B6EF3", "#7C3AED"] as Gradient,
 };
 
 export type Colors = typeof lightColors;
@@ -42,15 +52,15 @@ export type Colors = typeof lightColors;
 export const spacing = { xs: 4, sm: 8, md: 16, lg: 24, xl: 32 };
 
 export const typography = {
-  title: { fontSize: 28, fontWeight: "800" as const },
-  heading: { fontSize: 22, fontWeight: "700" as const },
-  body: { fontSize: 18, fontWeight: "400" as const },
-  bodyBold: { fontSize: 18, fontWeight: "700" as const },
-  caption: { fontSize: 15, fontWeight: "400" as const },
-  button: { fontSize: 19, fontWeight: "700" as const },
+  title: { fontSize: 23, fontWeight: "800" as const },
+  heading: { fontSize: 18, fontWeight: "700" as const },
+  body: { fontSize: 15, fontWeight: "400" as const },
+  bodyBold: { fontSize: 15, fontWeight: "700" as const },
+  caption: { fontSize: 13, fontWeight: "400" as const },
+  button: { fontSize: 16, fontWeight: "700" as const },
 };
 
-export const touchTarget = { minHeight: 56, borderRadius: 18 };
+export const touchTarget = { minHeight: 56, borderRadius: 22 };
 
 type Mode = "light" | "dark";
 type ThemeContextValue = { colors: Colors; mode: Mode; toggleMode: () => void };
