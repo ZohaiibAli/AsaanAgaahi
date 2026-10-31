@@ -7,10 +7,7 @@
  * landing in the exact same text field the manual paste flow already uses.
  */
 const SAMPLE_SCAM_TEXTS = [
-  "SasteMobile.pk: Mubarak ho! Aap ne free Redmi Note 13 jeeta hai. Delivery charges Rs. 350 is account mein bhejein: 0312-9988771. Offer sirf aaj ke liye hai!",
-  "NADRA Update: Aapka CNIC verification expire ho gaya hai. Turant update karein warna account block ho jayega: nadra-verify.cf/update",
   "UBL Alert: Aapke account mein Rs. 45,000 ka suspicious transaction hua hai. Cancel karne ke liye apna card number aur CVV is number par bhejein: 0345-1122334.",
-  "Telenor Lucky Customer: Aap ne Rs. 100,000 ka inaam jeeta hai! Claim karne ke liye apna mobile account ka PIN is number par SMS karein.",
 ];
 
 export async function scanScreenshotText(): Promise<string> {
